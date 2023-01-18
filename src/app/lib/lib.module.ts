@@ -4,6 +4,7 @@ import {DefaultComponent} from "./components/layouts/default/default.component";
 import {NzLayoutModule} from "ng-zorro-antd/layout";
 import {NzMenuModule} from "ng-zorro-antd/menu";
 import {IconsProviderModule} from "../icons-provider.module";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -13,7 +14,8 @@ import {IconsProviderModule} from "../icons-provider.module";
     CommonModule,
     NzLayoutModule,
     NzMenuModule,
-    IconsProviderModule
+    IconsProviderModule,
+    RouterModule
   ],
   exports: [DefaultComponent]
 })
