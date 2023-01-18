@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 export interface Data {
   id: number;
@@ -21,6 +22,38 @@ export class GroupListComponent implements OnInit {
   listOfData: readonly Data[] = [];
   listOfCurrentPageData: readonly Data[] = [];
   setOfCheckedId = new Set<number>();
+  isVisible = false;
+  isOkLoading = false;
+  validateForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+  }
+
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    if (this.validateForm.valid) {
+      this.isOkLoading = true;
+      console.log('submit', this.validateForm.value);
+      setTimeout(() => {
+        this.isVisible = false;
+        this.isOkLoading = false;
+      }, 3000);
+    } else {
+      Object.values(this.validateForm.controls).forEach(control => {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({onlySelf: true});
+        }
+      });
+    }
+  }
+
+  handleCancel(): void {
+    this.isVisible = false;
+  }
 
   updateCheckedSet(id: number, checked: boolean): void {
     if (checked) {
@@ -36,9 +69,9 @@ export class GroupListComponent implements OnInit {
   }
 
   refreshCheckedStatus(): void {
-    const listOfEnabledData = this.listOfCurrentPageData.filter(({ disabled }) => !disabled);
-    this.checked = listOfEnabledData.every(({ id }) => this.setOfCheckedId.has(id));
-    this.indeterminate = listOfEnabledData.some(({ id }) => this.setOfCheckedId.has(id)) && !this.checked;
+    const listOfEnabledData = this.listOfCurrentPageData.filter(({disabled}) => !disabled);
+    this.checked = listOfEnabledData.every(({id}) => this.setOfCheckedId.has(id));
+    this.indeterminate = listOfEnabledData.some(({id}) => this.setOfCheckedId.has(id)) && !this.checked;
   }
 
   onItemChecked(id: number, checked: boolean): void {
@@ -48,8 +81,8 @@ export class GroupListComponent implements OnInit {
 
   onAllChecked(checked: boolean): void {
     this.listOfCurrentPageData
-      .filter(({ disabled }) => !disabled)
-      .forEach(({ id }) => this.updateCheckedSet(id, checked));
+      .filter(({disabled}) => !disabled)
+      .forEach(({id}) => this.updateCheckedSet(id, checked));
     this.refreshCheckedStatus();
   }
 
@@ -65,9 +98,12 @@ export class GroupListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.validateForm = this.fb.group({
+      name: [null, [Validators.required]],
+    });
     this.listOfData = new Array(100).fill(0).map((_, index) => ({
       id: index,
-      name: `Edward King ${index}`,
+      name: `Group ${index}`,
       age: 32,
       address: `London, Park Lane no. ${index}`,
       disabled: index % 2 === 0

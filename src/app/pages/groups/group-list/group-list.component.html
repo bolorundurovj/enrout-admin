@@ -1,42 +1,63 @@
-
-    <div class="send-request">
-      <button
-        nz-button
-        nzType="primary"
-        [disabled]="setOfCheckedId.size === 0"
-        [nzLoading]="loading"
-        (click)="sendRequest()"
-      >
-        Send Request
-      </button>
-      <span>Selected {{ setOfCheckedId.size }} items</span>
-    </div>
-    <nz-table
-      #rowSelectionTable
-      nzShowPagination
-      nzShowSizeChanger
-      [nzData]="listOfData"
-      (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+<div class="send-request flex flex-row justify-between">
+  <div>
+    <button
+      (click)="sendRequest()"
+      [disabled]="setOfCheckedId.size === 0"
+      [nzLoading]="loading"
+      nz-button
+      nzType="default"
     >
-      <thead>
-        <tr>
-          <th [nzChecked]="checked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="onAllChecked($event)"></th>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Address</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of rowSelectionTable.data">
-          <td
-            [nzChecked]="setOfCheckedId.has(data.id)"
-            [nzDisabled]="data.disabled"
-            (nzCheckedChange)="onItemChecked(data.id, $event)"
-          ></td>
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
-        </tr>
-      </tbody>
-    </nz-table>
-  
+      Send Request
+    </button>
+    <span>Selected {{ setOfCheckedId.size }} items</span>
+  </div>
+  <button (click)="showModal()" class="flex flex-row items-center" nz-button nzType="primary">
+    <span nz-icon nzTheme="outline" nzType="plus"></span>
+    Add Group
+  </button>
+</div>
+<nz-table
+  #rowSelectionTable
+  (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+  [nzData]="listOfData"
+  nzShowPagination
+  nzShowSizeChanger
+>
+  <thead>
+  <tr>
+    <th (nzCheckedChange)="onAllChecked($event)" [nzChecked]="checked" [nzIndeterminate]="indeterminate"></th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Address</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of rowSelectionTable.data">
+    <td
+      (nzCheckedChange)="onItemChecked(data.id, $event)"
+      [nzChecked]="setOfCheckedId.has(data.id)"
+      [nzDisabled]="data.disabled"
+    ></td>
+    <td>{{ data.name }}</td>
+    <td>{{ data.age }}</td>
+    <td>{{ data.address }}</td>
+  </tr>
+  </tbody>
+</nz-table>
+
+<nz-modal
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [(nzVisible)]="isVisible"
+  [nzOkLoading]="isOkLoading"
+  nzTitle="Create A Group"
+>
+  <form *nzModalContent [formGroup]="validateForm" nz-form>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5" nzFor="name" nzRequired>Name</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="Please input the group name!">
+        <input formControlName="name" id="name" nz-input nzSize="default" type="text"/>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-modal>
