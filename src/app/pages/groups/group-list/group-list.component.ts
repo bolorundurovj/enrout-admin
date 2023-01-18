@@ -24,13 +24,29 @@ export class GroupListComponent implements OnInit {
   setOfCheckedId = new Set<number>();
   isVisible = false;
   isOkLoading = false;
+  isDeleting = false;
   validateForm!: FormGroup;
+  formMode: 'new' | 'edit' = "new";
+  group: any = {name: ''};
 
   constructor(private fb: FormBuilder) {
   }
 
   showModal(): void {
     this.isVisible = true;
+  }
+
+  editGroup(group: any) {
+    this.formMode = 'edit';
+    this.group = group;
+  }
+
+  deleteGroup(group: any) {
+    this.group = group;
+    this.isDeleting = true;
+    setTimeout(() => {
+      this.isDeleting = false;
+    }, 5000);
   }
 
   handleOk(): void {
