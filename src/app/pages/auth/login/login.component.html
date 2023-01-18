@@ -15,18 +15,11 @@
       </nz-form-control>
     </nz-form-item>
     <div class="login-form-margin" nz-row>
-      <div [nzSpan]="12" nz-col>
-        <label formControlName="remember" nz-checkbox>
-          <span>Remember me</span>
-        </label>
-      </div>
-      <div [nzSpan]="12" nz-col>
-        <a class="login-form-forgot">Forgot password</a>
-      </div>
+        <a class="login-form-forgot" routerLink="/auth/forgot-password">Forgot password</a>
     </div>
     <button [nzType]="'primary'" class="login-form-button login-form-margin" nz-button>Log in</button>
     Or
-    <a>register now!</a>
+    <a routerLink="/auth/register">register now!</a>
   </form>
 </div>
 

@@ -1,9 +1,27 @@
-<div class="col-12 col-offset-6">
-  <form (ngSubmit)="submitForm()" [formGroup]="validateForm" nz-form>
+<div class="flex flex-col justify-center items-center h-full">
+  <form (ngSubmit)="submitForm()" [formGroup]="validateForm" class="w-full" nz-form>
+    <nz-form-item class="w-full">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="firstName" nzRequired>First Name</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid!">
+        <input formControlName="firstName" id="firstName" nz-input/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastName" nzRequired>Last Name</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid!">
+        <input formControlName="lastName" id="lastName" nz-input/>
+      </nz-form-control>
+    </nz-form-item>
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email" nzRequired>E-mail</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
         <input formControlName="email" id="email" nz-input/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="universityId" nzRequired>University ID</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid ID!">
+        <input formControlName="universityId" id="universityId" nz-input/>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
@@ -31,20 +49,6 @@
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label
-        [nzSm]="6"
-        [nzXs]="24"
-        nzFor="nickname"
-        nzRequired
-        nzTooltipTitle="What do you want other to call you"
-      >
-        <span>Nickname</span>
-      </nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your nickname!">
-        <input formControlName="nickname" id="nickname" nz-input/>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>Phone Number</nz-form-label>
       <nz-form-control
         [nzSm]="14"
@@ -55,53 +59,46 @@
         <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
           <ng-template #addOnBeforeTemplate>
             <nz-select class="phone-select" formControlName="phoneNumberPrefix">
-              <nz-option nzLabel="+86" nzValue="+86"></nz-option>
-              <nz-option nzLabel="+87" nzValue="+87"></nz-option>
+              <nz-option nzLabel="+234" nzValue="+234"></nz-option>
             </nz-select>
           </ng-template>
           <input formControlName="phoneNumber" id="'phoneNumber'" nz-input/>
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="website" nzRequired>Website</nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input website!">
-        <input formControlName="website" id="website" nz-input placeholder="website"/>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label
-        [nzSm]="6"
-        [nzTooltipIcon]="captchaTooltipIcon"
-        [nzXs]="24"
-        nzFor="captcha"
-        nzRequired
-        nzTooltipTitle="Please click 'Get captcha'"
-      >
-        Captcha
-      </nz-form-label>
-      <nz-form-control
-        [nzSm]="14"
-        [nzXs]="24"
-        nzErrorTip="Please input the captcha you got!"
-        nzExtra="We must make sure that your are a human."
-      >
-        <div [nzGutter]="8" nz-row>
-          <div [nzSpan]="12" nz-col>
-            <input formControlName="captcha" id="captcha" nz-input/>
-          </div>
-          <div [nzSpan]="12" nz-col>
-            <button (click)="getCaptcha($event)" nz-button>Get captcha</button>
-          </div>
-        </div>
-      </nz-form-control>
-    </nz-form-item>
+<!--    <nz-form-item>-->
+<!--      <nz-form-label-->
+<!--        [nzSm]="6"-->
+<!--        [nzTooltipIcon]="captchaTooltipIcon"-->
+<!--        [nzXs]="24"-->
+<!--        nzFor="captcha"-->
+<!--        nzRequired-->
+<!--        nzTooltipTitle="Please click 'Get captcha'"-->
+<!--      >-->
+<!--        Captcha-->
+<!--      </nz-form-label>-->
+<!--      <nz-form-control-->
+<!--        [nzSm]="14"-->
+<!--        [nzXs]="24"-->
+<!--        nzErrorTip="Please input the captcha you got!"-->
+<!--        nzExtra="We must make sure that your are a human."-->
+<!--      >-->
+<!--        <div [nzGutter]="8" nz-row>-->
+<!--          <div [nzSpan]="12" nz-col>-->
+<!--            <input formControlName="captcha" id="captcha" nz-input/>-->
+<!--          </div>-->
+<!--          <div [nzSpan]="12" nz-col>-->
+<!--            <button (click)="getCaptcha($event)" nz-button>Get captcha</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </nz-form-control>-->
+<!--    </nz-form-item>-->
     <nz-form-item class="register-area" nz-row>
       <nz-form-control [nzOffset]="6" [nzSpan]="14">
-        <label formControlName="agree" nz-checkbox>
+        <label formControlName="agree">
             <span>
-              I have read the
-              <a>agreement</a>
+              Don't have an account?
+              <a routerLink="/auth/login">login here</a>
             </span>
         </label>
       </nz-form-control>
