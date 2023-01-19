@@ -31,6 +31,26 @@ export class ToastService {
     this.messages$.next([...this.messages$.value, message])
   }
 
+  success(content: string) {
+    const message = new ToastMessage(content, "success");
+    this.messages$.next([...this.messages$.value, message])
+  }
+
+  info(content: string) {
+    const message = new ToastMessage(content, "info");
+    this.messages$.next([...this.messages$.value, message])
+  }
+
+  warning(content: string) {
+    const message = new ToastMessage(content, "warning");
+    this.messages$.next([...this.messages$.value, message])
+  }
+
+  error(content: string) {
+    const message = new ToastMessage(content, "error");
+    this.messages$.next([...this.messages$.value, message])
+  }
+
   dismissMessage(messageKey: string) {
     const arr = this.messages$.value.filter((x) => x.key !== messageKey)
     this.messages$.next(arr)

@@ -28,18 +28,20 @@ export class GroupListComponent implements OnInit {
   isDeleting = false;
   validateForm!: FormGroup;
   formMode: 'new' | 'edit' = "new";
-  group: any = {name: ''};
+  group: any = {};
 
   constructor(private fb: FormBuilder, private toastService: ToastService) {
   }
 
   showModal(): void {
+    this.formMode = 'new';
     this.isVisible = true;
   }
 
   editGroup(group: any) {
     this.formMode = 'edit';
     this.group = group;
+    this.isVisible = true;
   }
 
   deleteGroup(group: any) {
@@ -55,10 +57,20 @@ export class GroupListComponent implements OnInit {
     if (this.validateForm.valid) {
       this.isOkLoading = true;
       console.log('submit', this.validateForm.value);
-      setTimeout(() => {
-        this.isVisible = false;
-        this.isOkLoading = false;
-      }, 3000);
+      if (this.formMode === 'new') {
+        setTimeout(() => {
+          this.isVisible = false;
+          this.isOkLoading = false;
+          this.toastService.success("Created!")
+        }, 3000);
+      } else {
+        setTimeout(() => {
+          this.isVisible = false;
+          this.isOkLoading = false;
+          this.toastService.success("Updated!")
+        }, 3000);
+      }
+      this.group = {};
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {

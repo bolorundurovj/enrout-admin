@@ -56,7 +56,7 @@
   (nzOnOk)="handleOk()"
   [(nzVisible)]="isVisible"
   [nzOkLoading]="isOkLoading"
-  nzTitle="Create A Group"
+  [nzTitle]="(formMode !== 'edit' ? 'Create A ' : 'Edit ') + 'Group'"
 >
   <form *nzModalContent [formGroup]="validateForm" nz-form>
     <nz-form-item>
