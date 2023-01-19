@@ -1,0 +1,16 @@
+.toast-message {
+  position: fixed;
+  top: 0%;
+  right: 2%;
+  // transform: translateX(-50%);
+  // background-color: rgba(0,0,0,0.5);
+  border-radius: 10px;
+  width: fit-content;
+  min-width: 300px;
+  font-size: 16px;
+  transition: all 0.5s;
+  z-index: 9999;
+  padding-left: auto;
+  margin-right: 1px;
+  // box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+}

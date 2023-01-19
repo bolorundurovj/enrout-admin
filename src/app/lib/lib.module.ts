@@ -5,18 +5,21 @@ import {NzLayoutModule} from "ng-zorro-antd/layout";
 import {NzMenuModule} from "ng-zorro-antd/menu";
 import {IconsProviderModule} from "../icons-provider.module";
 import {RouterModule} from "@angular/router";
+import { ToastComponent } from './components/toast/toast.component';
+import {NzAlertModule} from "ng-zorro-antd/alert";
 
 
 
 @NgModule({
-  declarations: [DefaultComponent],
+  declarations: [DefaultComponent, ToastComponent],
   imports: [
     CommonModule,
     NzLayoutModule,
     NzMenuModule,
     IconsProviderModule,
-    RouterModule
+    RouterModule,
+    NzAlertModule
   ],
-  exports: [DefaultComponent]
+  exports: [DefaultComponent, ToastComponent]
 })
 export class LibModule { }

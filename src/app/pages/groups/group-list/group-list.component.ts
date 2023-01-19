@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ToastService} from "../../../lib/services/toast.service";
 
 export interface Data {
   id: number;
@@ -29,7 +30,7 @@ export class GroupListComponent implements OnInit {
   formMode: 'new' | 'edit' = "new";
   group: any = {name: ''};
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private toastService: ToastService) {
   }
 
   showModal(): void {
@@ -46,7 +47,8 @@ export class GroupListComponent implements OnInit {
     this.isDeleting = true;
     setTimeout(() => {
       this.isDeleting = false;
-    }, 5000);
+      this.toastService.sendMessage("Deleted Successfully", "success")
+    }, 2000);
   }
 
   handleOk(): void {
