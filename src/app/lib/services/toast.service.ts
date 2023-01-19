@@ -26,7 +26,7 @@ export class ToastService {
     return this.messages$.asObservable();
   }
 
-  sendMessage(content: string, style: "success" | "info" | "warning" | "error") {
+  sendMessage(content: string, style: "success" | "info" | "warning" | "error" = "info") {
     const message = new ToastMessage(content, style);
     this.messages$.next([...this.messages$.value, message])
   }
