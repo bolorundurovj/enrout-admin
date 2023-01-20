@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
-import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+import {NzFormTooltipIcon} from 'ng-zorro-antd/form';
+import {IRegistrationRequest} from "../../../lib/interfaces";
+import {AuthService} from "../../../lib/services/auth/auth.service";
 
 @Component({
   selector: 'enr-register',
@@ -16,14 +18,19 @@ export class RegisterComponent implements OnInit {
     theme: 'twotone'
   };
 
+  constructor(private fb: FormBuilder, private _authService: AuthService) {
+  }
+
   submitForm(): void {
     if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
+      const user: IRegistrationRequest = this.validateForm.value;
+      this._authService.register(user)
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
           control.markAsDirty();
-          control.updateValueAndValidity({ onlySelf: true });
+          control.updateValueAndValidity({onlySelf: true});
         }
       });
     }
@@ -36,9 +43,9 @@ export class RegisterComponent implements OnInit {
 
   confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
     if (!control.value) {
-      return { required: true };
+      return {required: true};
     } else if (control.value !== this.validateForm.controls['password'].value) {
-      return { confirm: true, error: true };
+      return {confirm: true, error: true};
     }
     return {};
   };
@@ -47,19 +54,15 @@ export class RegisterComponent implements OnInit {
     e.preventDefault();
   }
 
-  constructor(private fb: FormBuilder) {}
-
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       email: [null, [Validators.email, Validators.required]],
       password: [null, [Validators.required]],
+      universityId: [null, [Validators.required]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      nickname: [null, [Validators.required]],
-      phoneNumberPrefix: ['+86'],
-      phoneNumber: [null, [Validators.required]],
-      website: [null, [Validators.required]],
-      captcha: [null, [Validators.required]],
-      agree: [false]
+      firstName: [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
+      phone: [null, [Validators.required]],
     });
   }
 }

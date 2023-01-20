@@ -1,3 +1,5 @@
+import {UserType} from "../enums";
+
 export interface IUser {
   firstName: string;
   lastName: string;

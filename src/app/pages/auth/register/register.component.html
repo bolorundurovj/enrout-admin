@@ -56,46 +56,39 @@
         [nzXs]="24"
         nzErrorTip="Please input your phone number!"
       >
-        <nz-input-group [nzAddOnBefore]="addOnBeforeTemplate">
-          <ng-template #addOnBeforeTemplate>
-            <nz-select class="phone-select" formControlName="phoneNumberPrefix">
-              <nz-option nzLabel="+234" nzValue="+234"></nz-option>
-            </nz-select>
-          </ng-template>
-          <input formControlName="phoneNumber" id="'phoneNumber'" nz-input/>
-        </nz-input-group>
+        <input formControlName="phone" id="'phoneNumber'" nz-input/>
       </nz-form-control>
     </nz-form-item>
-<!--    <nz-form-item>-->
-<!--      <nz-form-label-->
-<!--        [nzSm]="6"-->
-<!--        [nzTooltipIcon]="captchaTooltipIcon"-->
-<!--        [nzXs]="24"-->
-<!--        nzFor="captcha"-->
-<!--        nzRequired-->
-<!--        nzTooltipTitle="Please click 'Get captcha'"-->
-<!--      >-->
-<!--        Captcha-->
-<!--      </nz-form-label>-->
-<!--      <nz-form-control-->
-<!--        [nzSm]="14"-->
-<!--        [nzXs]="24"-->
-<!--        nzErrorTip="Please input the captcha you got!"-->
-<!--        nzExtra="We must make sure that your are a human."-->
-<!--      >-->
-<!--        <div [nzGutter]="8" nz-row>-->
-<!--          <div [nzSpan]="12" nz-col>-->
-<!--            <input formControlName="captcha" id="captcha" nz-input/>-->
-<!--          </div>-->
-<!--          <div [nzSpan]="12" nz-col>-->
-<!--            <button (click)="getCaptcha($event)" nz-button>Get captcha</button>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </nz-form-control>-->
-<!--    </nz-form-item>-->
+    <!--    <nz-form-item>-->
+    <!--      <nz-form-label-->
+    <!--        [nzSm]="6"-->
+    <!--        [nzTooltipIcon]="captchaTooltipIcon"-->
+    <!--        [nzXs]="24"-->
+    <!--        nzFor="captcha"-->
+    <!--        nzRequired-->
+    <!--        nzTooltipTitle="Please click 'Get captcha'"-->
+    <!--      >-->
+    <!--        Captcha-->
+    <!--      </nz-form-label>-->
+    <!--      <nz-form-control-->
+    <!--        [nzSm]="14"-->
+    <!--        [nzXs]="24"-->
+    <!--        nzErrorTip="Please input the captcha you got!"-->
+    <!--        nzExtra="We must make sure that your are a human."-->
+    <!--      >-->
+    <!--        <div [nzGutter]="8" nz-row>-->
+    <!--          <div [nzSpan]="12" nz-col>-->
+    <!--            <input formControlName="captcha" id="captcha" nz-input/>-->
+    <!--          </div>-->
+    <!--          <div [nzSpan]="12" nz-col>-->
+    <!--            <button (click)="getCaptcha($event)" nz-button>Get captcha</button>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </nz-form-control>-->
+    <!--    </nz-form-item>-->
     <nz-form-item class="register-area" nz-row>
       <nz-form-control [nzOffset]="6" [nzSpan]="14">
-        <label formControlName="agree">
+        <label>
             <span>
               Don't have an account?
               <a routerLink="/auth/login">login here</a>
@@ -105,7 +98,7 @@
     </nz-form-item>
     <nz-form-item class="register-area" nz-row>
       <nz-form-control [nzOffset]="6" [nzSpan]="14">
-        <button nz-button nzType="primary">Register</button>
+        <button nz-button nzType="primary" type="submit">Register</button>
       </nz-form-control>
     </nz-form-item>
   </form>
