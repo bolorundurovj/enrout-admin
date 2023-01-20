@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from "../auth.service";
+import {AuthService} from "../../../lib/services/auth/auth.service";
 
 @Component({
   selector: 'enr-login',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   submitForm(): void {
     if (this.validateForm.valid) {
       console.log('submit', this.validateForm.value);
-      this._authService.login();
+      this._authService.login(this.validateForm.value['email'], this.validateForm.value['password']);
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
+      email: [null, [Validators.required]],
       password: [null, [Validators.required]],
       remember: [true]
     });
