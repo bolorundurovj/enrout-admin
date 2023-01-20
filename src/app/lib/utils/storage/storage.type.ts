@@ -1,14 +1,13 @@
 import {AppTheme} from "../../services/theme";
+import {ILoginResponse} from "../../interfaces";
 
 type StorageObjectMap = {
-  'App/session': {
-    user: string;
-    token: string;
-  };
+  'App/session': ILoginResponse;
   'App/theme': AppTheme;
+  'App/token': string;
 };
 
-export type StorageObjectType = 'App/session' | 'App/theme';
+export type StorageObjectType = 'App/session' | 'App/theme' | 'App/token';
 
 export type StorageObjectData<T extends StorageObjectType> = {
   type: T;
