@@ -6,14 +6,8 @@ import {GroupService} from "../../../lib/services/group/group.service";
 import {IGroup} from "../../../lib/interfaces/igroup";
 import {IPaginatedMetadata} from "../../../lib/interfaces";
 import {LoaderService} from "../../../lib/services/loader/loader.service";
-
-export interface Data {
-  id: number;
-  name: string;
-  age: number;
-  address: string;
-  disabled: boolean;
-}
+import {enumAsArray} from "../../../lib/utils/functions/functions.utils";
+import {DivisionType} from "../../../lib/enums";
 
 @Component({
   selector: 'enr-group-list',
@@ -24,9 +18,8 @@ export interface Data {
 export class GroupListComponent implements OnInit {
   checked = false;
   loading = false;
-  indeterminate = false;
+  divisions: Array<any> = enumAsArray(DivisionType)
   listOfData: readonly IGroup[] = [];
-  listOfCurrentPageData: readonly IGroup[] = [];
   setOfCheckedId = new Set<string>();
   isVisible = false;
   isOkLoading = false;
@@ -56,6 +49,8 @@ export class GroupListComponent implements OnInit {
     this.formMode = 'edit';
     this.group = group;
     this.isVisible = true;
+    this.validateForm.controls['name'].setValue(group.name);
+    this.validateForm.controls['division'].setValue(group.division);
   }
 
   deleteGroup(group: any) {
@@ -70,21 +65,49 @@ export class GroupListComponent implements OnInit {
   handleOk(): void {
     if (this.validateForm.valid) {
       this.isOkLoading = true;
-      console.log('submit', this.validateForm.value);
       if (this.formMode === 'new') {
-        setTimeout(() => {
-          this.isVisible = false;
-          this.isOkLoading = false;
-          this.toastService.success("Created!")
-        }, 3000);
+        this.groupService.createGroup(this.validateForm.value)
+          .subscribe(
+            (response) => {
+              if (response) {
+                this.toastService.success(`Created Group ${response.name}`);
+                this.getGroups()
+              } else {
+                this.toastService.error("An error occurred, please try again")
+              }
+            },
+            (error) => {
+              console.error(error)
+              this.toastService.error(`${error.error?.error || 'An error occurred'}`);
+            },
+            () => {
+              this.isVisible = false;
+              this.isOkLoading = false;
+            }
+          )
       } else {
-        setTimeout(() => {
-          this.isVisible = false;
-          this.isOkLoading = false;
-          this.toastService.success("Updated!")
-        }, 3000);
+        this.groupService.updateGroup(this.group.id, this.validateForm.value)
+          .subscribe(
+            (response) => {
+              if (response) {
+                this.toastService.success(`Updated Group ${response.name}`);
+                this.getGroups();
+              } else {
+                this.toastService.error("An error occurred, please try again")
+                return
+              }
+            },
+            (error) => {
+              console.error(error)
+              this.toastService.error(`${error.error?.error || 'An error occurred'}`);
+            },
+            () => {
+              this.isVisible = false;
+              this.isOkLoading = false;
+              this.group = {};
+            }
+          );
       }
-      this.group = {};
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -99,12 +122,12 @@ export class GroupListComponent implements OnInit {
     this.isVisible = false;
   }
 
-  pageChange(page: number){
+  pageChange(page: number) {
     this.groupPagination.page = page;
     this.getGroups();
   }
 
-  limitChange(limit: number){
+  limitChange(limit: number) {
     this.groupPagination.take = limit;
     this.getGroups();
   }
@@ -172,6 +195,7 @@ export class GroupListComponent implements OnInit {
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       name: [null, [Validators.required]],
+      division: [null, [Validators.required]],
     });
 
     this.getGroups()
