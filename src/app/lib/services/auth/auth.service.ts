@@ -45,7 +45,6 @@ export class AuthService {
           }
         },
         (error) => {
-          console.error(error)
           this.toast.error(`${error.error?.error || 'An error occurred'}`);
           this.isLoggedIn$.next(false);
         }

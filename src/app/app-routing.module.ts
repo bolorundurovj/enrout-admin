@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AuthGuard} from "./lib/guards/auth.guard";
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/welcome'},
@@ -13,7 +14,11 @@ const routes: Routes = [
     path: 'group-roles',
     loadChildren: () => import('./pages/group-roles/group-roles.module').then(m => m.GroupRolesModule)
   },
-  {path: 'groups', loadChildren: () => import('./pages/groups/groups.module').then(m => m.GroupsModule)},
+  {
+    path: 'groups',
+    canLoad: [AuthGuard],
+    loadChildren: () => import('./pages/groups/groups.module').then(m => m.GroupsModule)
+  },
   {path: 'staff', loadChildren: () => import('./pages/staff/staff.module').then(m => m.StaffModule)}, {
     path: 'students',
     loadChildren: () => import('./pages/students/students.module').then(m => m.StudentsModule)
