@@ -53,13 +53,27 @@ export class GroupListComponent implements OnInit {
     this.validateForm.controls['division'].setValue(group.division);
   }
 
-  deleteGroup(group: any) {
+  deleteGroup(group: IGroup) {
     this.group = group;
     this.isDeleting = true;
-    setTimeout(() => {
-      this.isDeleting = false;
-      this.toastService.sendMessage("Deleted Successfully", "success")
-    }, 2000);
+    this.groupService.deleteSingleGroups(group.id)
+      .subscribe(
+        (response) => {
+          if (response) {
+            this.toastService.success(`Deleted ${response.name} Group`)
+            this.getGroups()
+          } else {
+            this.toastService.error("An error occurred, please try again")
+          }
+        },
+        (error) => {
+          console.error(error)
+          this.toastService.error(`${error.error?.error || 'An error occurred'}`);
+        },
+        () => {
+          this.isDeleting = false;
+        }
+      );
   }
 
   handleOk(): void {
