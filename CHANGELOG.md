@@ -1,5 +1,23 @@
 
 
+# [0.3.0](https://github.com/bolorundurovj/enrout-admin/compare/0.2.0...0.3.0) (2023-01-22)
+
+
+### Bug Fixes
+
+* Wrong form control name ([68d9a96](https://github.com/bolorundurovj/enrout-admin/commit/68d9a96ce3e7f15b050c3e5573cb00991f07ef88))
+
+
+### Features
+
+* Add Group ROles to Nav ([595f203](https://github.com/bolorundurovj/enrout-admin/commit/595f20359e90beab678e9dc228e1895e1f68fc5e))
+* Add Staff Designation ENUM ([5c1b410](https://github.com/bolorundurovj/enrout-admin/commit/5c1b410deaf4003c51926bff206498322d4032fd))
+* **group-roles:** Add missing module ([9bc5ee9](https://github.com/bolorundurovj/enrout-admin/commit/9bc5ee9f054a7c2509abd2d297268fd9b2a2ef10))
+* **group-roles:** Setup Department Service CRUD ([fa16186](https://github.com/bolorundurovj/enrout-admin/commit/fa16186be7c675f620a96382e9b65dd36d1e5f45))
+* **group-roles:** Setup Group Roles Interfaces ([a4bed4e](https://github.com/bolorundurovj/enrout-admin/commit/a4bed4efaf7233eb0e4b2950f75d62f7618adbc6))
+* **group-roles:** Setup Group Roles Routing ([fa83642](https://github.com/bolorundurovj/enrout-admin/commit/fa8364249233028354c8179bceab6a760a4900cf))
+* **group-roles:** Setup Group Roles View ([054afdf](https://github.com/bolorundurovj/enrout-admin/commit/054afdf852c24fb1ac00db7647df11d5ec58cad2))
+
 # [0.2.0](https://github.com/bolorundurovj/enrout-admin/compare/0.1.0...0.2.0) (2023-01-22)
 
 
