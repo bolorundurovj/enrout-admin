@@ -65,9 +65,9 @@
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label [nzSpan]="5" nzFor="group" nzRequired>Divisions</nz-form-label>
+      <nz-form-label [nzSpan]="5" nzFor="group" nzRequired>Designation</nz-form-label>
       <nz-form-control [nzSpan]="12" nzErrorTip="Please select a division!">
-        <nz-select formControlName="division" id="division" nzSize="default">
+        <nz-select formControlName="designation" id="division" nzSize="default">
           <nz-option nzDisabled nzLabel="Disabled"></nz-option>
           <nz-option *ngFor="let d of designations" [nzLabel]="d" [nzValue]="d"></nz-option>
         </nz-select>
