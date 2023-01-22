@@ -1,6 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ToastService} from "../../../lib/services/toast.service";
+import {IGroup} from "../../../lib/interfaces/igroup";
+import {PaginationParams} from "../../../lib/classes/pagination-params";
+import {IDepartment, IPaginatedMetadata} from "../../../lib/interfaces";
+import {DepartmentService} from "../../../lib/services/department/department.service";
+import {GroupService} from "../../../lib/services/group/group.service";
 
 
 export interface Data {
@@ -18,18 +23,27 @@ export interface Data {
 export class DepartmentListComponent implements OnInit {
   checked = false;
   loading = false;
-  indeterminate = false;
-  listOfData: readonly Data[] = [];
-  listOfCurrentPageData: readonly Data[] = [];
-  setOfCheckedId = new Set<number>();
+  groups: Array<IGroup> = [];
+  listOfData: readonly IDepartment[] = [];
+  setOfCheckedId = new Set<string>();
   isVisible = false;
   isOkLoading = false;
   isDeleting = false;
   validateForm!: FormGroup;
   formMode: 'new' | 'edit' = "new";
-  department: any = {};
+  department: IDepartment = null!;
+  pagination = new PaginationParams()
+  paginationMeta: IPaginatedMetadata = {
+    "page": 1,
+    "take": 10,
+    "itemCount": 0,
+    "pageCount": 0,
+    "hasPreviousPage": false,
+    "hasNextPage": true
+  };
 
-  constructor(private fb: FormBuilder, private toastService: ToastService) {
+  constructor(private fb: FormBuilder, private toastService: ToastService,
+              private departmentService: DepartmentService, private groupService: GroupService) {
   }
 
   showModal(): void {
@@ -37,21 +51,57 @@ export class DepartmentListComponent implements OnInit {
     this.isVisible = true;
   }
 
-  editGroup(department: any) {
+  getDepts() {
+    this.loading = true;
+    this.departmentService.retrieveDepartments(this.pagination)
+      .subscribe(
+        (response) => {
+          if (response) {
+            this.listOfData = response.data;
+            this.paginationMeta = response.meta;
+          } else {
+            this.toastService.error("An error occurred, please try again")
+          }
+        },
+        (error) => {
+          console.error(error)
+          this.toastService.error(`${error.error?.error || 'An error occurred'}`);
+        },
+        () => {
+          this.loading = false;
+        }
+      );
+  }
+
+  editDept(department: IDepartment) {
     this.formMode = 'edit';
     this.department = department;
     this.isVisible = true;
     this.validateForm.controls['name'].setValue(department.name);
-    this.validateForm.controls['group'].setValue(department.group);
+    // this.validateForm.controls['groupId'].setValue(department.groupId);
   }
 
-  deleteGroup(department: any) {
+  deleteDept(department: IDepartment) {
     this.department = department;
     this.isDeleting = true;
-    setTimeout(() => {
-      this.isDeleting = false;
-      this.toastService.sendMessage("Deleted Successfully", "success")
-    }, 2000);
+    this.departmentService.deleteSingleDepartment(department.id)
+      .subscribe(
+        (response) => {
+          if (response) {
+            this.toastService.success(`Deleted ${response.name} Department`)
+            this.getDepts()
+          } else {
+            this.toastService.error("An error occurred, please try again")
+          }
+        },
+        (error) => {
+          console.error(error)
+          this.toastService.error(`${error.error?.error || 'An error occurred'}`);
+        },
+        () => {
+          this.isDeleting = false;
+        }
+      );
   }
 
   handleOk(): void {
@@ -59,19 +109,50 @@ export class DepartmentListComponent implements OnInit {
       this.isOkLoading = true;
       console.log('submit', this.validateForm.value);
       if (this.formMode === 'new') {
-        setTimeout(() => {
-          this.isVisible = false;
-          this.isOkLoading = false;
-          this.toastService.success("Created!")
-        }, 3000);
+        this.departmentService.createDepartment(this.validateForm.value)
+          .subscribe(
+            (response) => {
+              if (response) {
+                this.toastService.success(`Created ${response.name} Department`);
+                this.getDepts()
+              } else {
+                this.toastService.error("An error occurred, please try again")
+              }
+            },
+            (error) => {
+              console.error(error)
+              this.toastService.error(`${error.error?.error || 'An error occurred'}`);
+            },
+            () => {
+              this.isVisible = false;
+              this.isOkLoading = false;
+              this.validateForm.reset()
+            }
+          )
       } else {
-        setTimeout(() => {
-          this.isVisible = false;
-          this.isOkLoading = false;
-          this.toastService.success("Updated!")
-        }, 3000);
+        this.departmentService.updateDepartment(this.department.id, this.validateForm.value)
+          .subscribe(
+            (response) => {
+              if (response) {
+                this.toastService.success(`Updated ${response.name} Department`);
+                this.getDepts();
+              } else {
+                this.toastService.error("An error occurred, please try again")
+                return
+              }
+            },
+            (error) => {
+              console.error(error)
+              this.toastService.error(`${error.error?.error || 'An error occurred'}`);
+            },
+            () => {
+              this.isVisible = false;
+              this.isOkLoading = false;
+              this.department = null!;
+            }
+          );
       }
-      this.department = {};
+      this.department = null!;
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -86,59 +167,46 @@ export class DepartmentListComponent implements OnInit {
     this.isVisible = false;
   }
 
-  updateCheckedSet(id: number, checked: boolean): void {
-    if (checked) {
-      this.setOfCheckedId.add(id);
-    } else {
-      this.setOfCheckedId.delete(id);
-    }
+  pageChange(page: number) {
+    this.pagination.page = page;
+    this.getDepts();
   }
 
-  onCurrentPageDataChange(listOfCurrentPageData: readonly Data[]): void {
-    this.listOfCurrentPageData = listOfCurrentPageData;
-    this.refreshCheckedStatus();
+  limitChange(limit: number) {
+    this.pagination.take = limit;
+    this.getDepts();
   }
 
-  refreshCheckedStatus(): void {
-    const listOfEnabledData = this.listOfCurrentPageData.filter(({disabled}) => !disabled);
-    this.checked = listOfEnabledData.every(({id}) => this.setOfCheckedId.has(id));
-    this.indeterminate = listOfEnabledData.some(({id}) => this.setOfCheckedId.has(id)) && !this.checked;
-  }
-
-  onItemChecked(id: number, checked: boolean): void {
-    this.updateCheckedSet(id, checked);
-    this.refreshCheckedStatus();
-  }
-
-  onAllChecked(checked: boolean): void {
-    this.listOfCurrentPageData
-      .filter(({disabled}) => !disabled)
-      .forEach(({id}) => this.updateCheckedSet(id, checked));
-    this.refreshCheckedStatus();
-  }
-
-  sendRequest(): void {
+  getGroups() {
     this.loading = true;
-    const requestData = this.listOfData.filter(data => this.setOfCheckedId.has(data.id));
-    console.log(requestData);
-    setTimeout(() => {
-      this.setOfCheckedId.clear();
-      this.refreshCheckedStatus();
-      this.loading = false;
-    }, 1000);
+    const pg = new PaginationParams()
+    pg.take = 20;
+    this.groupService.retrieveGroups(pg)
+      .subscribe(
+        (response) => {
+          if (response) {
+            this.groups = response.data;
+          } else {
+            this.toastService.error("An error occurred, please try again")
+          }
+        },
+        (error) => {
+          console.error(error)
+          this.toastService.error(`${error.error?.error || 'An error occurred'}`);
+        },
+        () => {
+          this.loading = false;
+        }
+      );
   }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       name: [null, [Validators.required]],
-      group: [null, [Validators.required]],
+      groupId: [null, [Validators.required]],
     });
-    this.listOfData = new Array(100).fill(0).map((_, index) => ({
-      id: index,
-      name: `Department ${index}`,
-      group: `seet`,
-      disabled: index % 2 === 0
-    }));
+    this.getGroups()
+    this.getDepts()
   }
 
 }
