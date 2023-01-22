@@ -1,5 +1,14 @@
 
 
+# [0.2.0](https://github.com/bolorundurovj/enrout-admin/compare/0.1.0...0.2.0) (2023-01-22)
+
+
+### Features
+
+* **department:** Bind Department CRUD to API ([55988e9](https://github.com/bolorundurovj/enrout-admin/commit/55988e92333bcd836bd2ea1894e0b5975cea0d8d))
+* **department:** Setup Department Interfaces ([be157cb](https://github.com/bolorundurovj/enrout-admin/commit/be157cbb18176ff6e7a27762e5dfef8fc9bc345a))
+* **department:** Setup Department Service CRUD ([633d479](https://github.com/bolorundurovj/enrout-admin/commit/633d4795c1e416f149959b45b0a7a44f674c8602))
+
 # 0.1.0 (2023-01-21)
 
 
