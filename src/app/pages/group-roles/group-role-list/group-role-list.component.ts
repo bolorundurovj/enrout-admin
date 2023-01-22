@@ -94,6 +94,7 @@ export class GroupRoleListComponent implements OnInit {
             () => {
               this.isVisible = false;
               this.isOkLoading = false;
+              this.validateForm.reset()
             }
           )
       } else {
@@ -116,6 +117,7 @@ export class GroupRoleListComponent implements OnInit {
               this.isVisible = false;
               this.isOkLoading = false;
               this.role = null!;
+              this.validateForm.reset()
             }
           );
       }
