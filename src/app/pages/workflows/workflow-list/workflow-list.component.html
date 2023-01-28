@@ -1,0 +1,74 @@
+<div class="send-request flex flex-row justify-between">
+  <button (click)="showModal()" class="flex flex-row items-center" nz-button nzType="primary">
+    <span nz-icon nzTheme="outline" nzType="plus"></span>
+    Add Workflow
+  </button>
+</div>
+<nz-table
+  #rowSelectionTable
+  (nzPageIndexChange)="pageChange($event)"
+  (nzPageSizeChange)="limitChange($event)"
+  [nzData]="listOfData"
+  [nzFrontPagination]="false"
+  [nzLoading]="loading"
+  [nzPageIndex]="pagination.page"
+  [nzPageSize]="pagination.take"
+  [nzShowTotal]="rangeTemplate"
+  [nzTotal]="paginationMeta.itemCount"
+  nzShowPagination
+  nzShowSizeChanger
+>
+  <thead>
+  <tr>
+    <th>S/N</th>
+    <th></th>
+    <th>Name</th>
+    <th>Added On</th>
+    <th>Last Updated</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of rowSelectionTable.data; let i = index;">
+    <td
+    >{{(i + 1) + (pagination.page * pagination.take) - 10}}</td>
+    <td
+    ></td>
+    <td>{{ data.name }}</td>
+    <td>{{ data.createdAt | date }}</td>
+    <td>{{ data.updatedAt | date }}</td>
+    <td>
+      <button (click)="editGroup(data)" nz-button nzType="primary">Edit</button>
+      <nz-divider nzType="vertical"></nz-divider>
+      <button (click)="deleteGroup(data)" [nzLoading]="isDeleting && workflow.id === data.id" nz-button nzDanger
+              nzType="primary">Delete
+      </button>
+      <nz-divider nzType="vertical"></nz-divider>
+      <button [routerLink]="[data.id]" nz-button nzSuccess
+              nzType="primary">View
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+
+<nz-modal
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [(nzVisible)]="isVisible"
+  [nzOkLoading]="isOkLoading"
+  [nzTitle]="(formMode !== 'edit' ? 'Create A ' : 'Edit ') + 'Workflow'"
+>
+  <form *nzModalContent [formGroup]="validateForm" nz-form>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5" nzFor="name" nzRequired>Name</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="Please input the group name!">
+        <input formControlName="name" id="name" nz-input nzSize="default" type="text"/>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-modal>
+
+<ng-template #rangeTemplate let-range="range" let-total>
+  {{ range[0] }}-{{ range[1] }} of {{ total }} items
+</ng-template>
