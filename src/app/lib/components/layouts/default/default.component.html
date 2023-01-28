@@ -6,7 +6,7 @@
             nzCollapsible
             nzWidth="256px">
     <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
+      <a routerLink="/" target="_blank">
         <img alt="logo" src="https://ng.ant.design/assets/img/logo.svg">
         <h1>Enrout Admin</h1>
       </a>
@@ -19,9 +19,6 @@
           </li>
           <li nz-menu-item nzMatchRouter>
             <a>Monitor</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
           </li>
         </ul>
       </li>
@@ -46,10 +43,10 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzIcon="form" nzOpen nzTitle="Form">
+      <li nz-submenu nzIcon="form" nzOpen nzTitle="Workflows">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
+            <a [routerLink]="['workflows']">Workflow List</a>
           </li>
         </ul>
       </li>
