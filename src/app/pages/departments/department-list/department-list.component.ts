@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {ToastService} from "../../../lib/services/toast.service";
 import {IGroup} from "../../../lib/interfaces/igroup";
 import {PaginationParams} from "../../../lib/classes/pagination-params";
@@ -29,7 +29,7 @@ export class DepartmentListComponent implements OnInit {
   isVisible = false;
   isOkLoading = false;
   isDeleting = false;
-  validateForm!: FormGroup;
+  validateForm!: UntypedFormGroup;
   formMode: 'new' | 'edit' = "new";
   department: IDepartment = null!;
   pagination = new PaginationParams()
@@ -42,7 +42,7 @@ export class DepartmentListComponent implements OnInit {
     "hasNextPage": true
   };
 
-  constructor(private fb: FormBuilder, private toastService: ToastService,
+  constructor(private fb: UntypedFormBuilder, private toastService: ToastService,
               private departmentService: DepartmentService, private groupService: GroupService) {
   }
 

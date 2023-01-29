@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 
 import {NzFormTooltipIcon} from 'ng-zorro-antd/form';
 import {IRegistrationRequest} from "../../../lib/interfaces";
@@ -12,13 +12,13 @@ import {AuthService} from "../../../lib/services/auth/auth.service";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  validateForm!: FormGroup;
+  validateForm!: UntypedFormGroup;
   captchaTooltipIcon: NzFormTooltipIcon = {
     type: 'info-circle',
     theme: 'twotone'
   };
 
-  constructor(private fb: FormBuilder, private _authService: AuthService) {
+  constructor(private fb: UntypedFormBuilder, private _authService: AuthService) {
   }
 
   submitForm(): void {
@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
     Promise.resolve().then(() => this.validateForm.controls['checkPassword'].updateValueAndValidity());
   }
 
-  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
+  confirmationValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
     if (!control.value) {
       return {required: true};
     } else if (control.value !== this.validateForm.controls['password'].value) {

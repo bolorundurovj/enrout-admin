@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {AuthService} from "../../../lib/services/auth/auth.service";
 
 @Component({
@@ -8,9 +8,9 @@ import {AuthService} from "../../../lib/services/auth/auth.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  validateForm!: FormGroup;
+  validateForm!: UntypedFormGroup;
 
-  constructor(private _authService: AuthService, private fb: FormBuilder) {
+  constructor(private _authService: AuthService, private fb: UntypedFormBuilder) {
   }
 
   submitForm(): void {

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IGroupRole, IWorkflowExtended, IWorkflowItem} from "../../../lib/interfaces";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {ToastService} from "../../../lib/services/toast.service";
 import {WorkflowService} from "../../../lib/services/workflow/workflow.service";
 import {ActivatedRoute} from "@angular/router";
@@ -21,11 +21,11 @@ export class WorkflowDetailComponent implements OnInit {
   isVisible = false;
   isOkLoading = false;
   isDeleting = false;
-  validateForm!: FormGroup;
+  validateForm!: UntypedFormGroup;
   formMode: 'new' | 'edit' = "new";
   roles: IGroupRole[] = [];
 
-  constructor(private fb: FormBuilder, private toastService: ToastService, private workflowService: WorkflowService, private _route: ActivatedRoute, private location: Location, private roleService: GroupRoleService) {
+  constructor(private fb: UntypedFormBuilder, private toastService: ToastService, private workflowService: WorkflowService, private _route: ActivatedRoute, private location: Location, private roleService: GroupRoleService) {
     this._route.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id) {

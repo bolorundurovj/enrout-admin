@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {ToastService} from "../../../lib/services/toast.service";
 import {PaginationParams} from "../../../lib/classes/pagination-params";
 import {GroupService} from "../../../lib/services/group/group.service";
@@ -24,7 +24,7 @@ export class GroupListComponent implements OnInit {
   isVisible = false;
   isOkLoading = false;
   isDeleting = false;
-  validateForm!: FormGroup;
+  validateForm!: UntypedFormGroup;
   formMode: 'new' | 'edit' = "new";
   group: any = {};
   groupPagination = new PaginationParams()
@@ -37,7 +37,7 @@ export class GroupListComponent implements OnInit {
     "hasNextPage": true
   };
 
-  constructor(private fb: FormBuilder, private toastService: ToastService, private groupService: GroupService, private loader: LoaderService) {
+  constructor(private fb: UntypedFormBuilder, private toastService: ToastService, private groupService: GroupService, private loader: LoaderService) {
   }
 
   showModal(): void {

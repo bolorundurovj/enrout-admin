@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {enumAsArray} from "../../../lib/utils/functions/functions.utils";
 import {StaffDesignation} from "../../../lib/enums";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {PaginationParams} from "../../../lib/classes/pagination-params";
 import {IGroupRole, IPaginatedMetadata} from "../../../lib/interfaces";
 import {ToastService} from "../../../lib/services/toast.service";
@@ -21,7 +21,7 @@ export class GroupRoleListComponent implements OnInit {
   isVisible = false;
   isOkLoading = false;
   isDeleting = false;
-  validateForm!: FormGroup;
+  validateForm!: UntypedFormGroup;
   formMode: 'new' | 'edit' = "new";
   role: IGroupRole = null!;
   pagination = new PaginationParams()
@@ -34,7 +34,7 @@ export class GroupRoleListComponent implements OnInit {
     "hasNextPage": true
   };
 
-  constructor(private fb: FormBuilder, private toastService: ToastService, private roleService: GroupRoleService) {
+  constructor(private fb: UntypedFormBuilder, private toastService: ToastService, private roleService: GroupRoleService) {
   }
 
   showModal(): void {
