@@ -1,5 +1,24 @@
 
 
+# [1.0.0](https://github.com/bolorundurovj/enrout-admin/compare/0.3.0...1.0.0) (2023-01-29)
+
+
+### Bug Fixes
+
+* Update build error and warning limits ([02c8c0f](https://github.com/bolorundurovj/enrout-admin/commit/02c8c0ffdb1067dfbad723f2b2ad4a303218c186))
+
+
+### Features
+
+* Update Document States ([6018460](https://github.com/bolorundurovj/enrout-admin/commit/601846009f0a13c18aecee9995156b25f370e77b))
+* Update Layout ([b7bbec2](https://github.com/bolorundurovj/enrout-admin/commit/b7bbec2065beb26674469b7547b9e2e62ba64bf3))
+* **workflow:** Add Workflow Interfaces ([d389bb1](https://github.com/bolorundurovj/enrout-admin/commit/d389bb1c10a1af333c2cfd9d1915dec7c7881259))
+* **workflow:** List Workflows ([c97cb3f](https://github.com/bolorundurovj/enrout-admin/commit/c97cb3f04af7f288aa4a4c06b563343c15eff953))
+* **workflow:** Setup Workflow Module ([7cff4c7](https://github.com/bolorundurovj/enrout-admin/commit/7cff4c71ae247849efa7c153a6237e546027472f))
+* **workflow:** Setup Workflow Routes ([1d295e3](https://github.com/bolorundurovj/enrout-admin/commit/1d295e361076b6cc1023ef77e7042fd7703b2a8a))
+* **workflow:** Setup Workflow Service CRUD ([6db4f72](https://github.com/bolorundurovj/enrout-admin/commit/6db4f720c7631365d27b013fef2f41d7d2a00f1a))
+* **workflow:** View Workflow Details & Perform Actions [add, delete] ([95c4745](https://github.com/bolorundurovj/enrout-admin/commit/95c47457a85b8e76c90f42695bc33b7a2af4436c))
+
 # [0.3.0](https://github.com/bolorundurovj/enrout-admin/compare/0.2.0...0.3.0) (2023-01-22)
 
 
