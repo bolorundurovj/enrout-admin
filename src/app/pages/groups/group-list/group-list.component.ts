@@ -8,6 +8,7 @@ import {IPaginatedMetadata} from "../../../lib/interfaces";
 import {LoaderService} from "../../../lib/services/loader/loader.service";
 import {enumAsArray} from "../../../lib/utils/functions/functions.utils";
 import {DivisionType} from "../../../lib/enums";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'enr-group-list',
@@ -37,7 +38,7 @@ export class GroupListComponent implements OnInit {
     "hasNextPage": true
   };
 
-  constructor(private fb: UntypedFormBuilder, private toastService: ToastService, private groupService: GroupService, private loader: LoaderService) {
+  constructor(private fb: UntypedFormBuilder, private toastService: ToastService, private groupService: GroupService, private loader: LoaderService, private title: Title) {
   }
 
   showModal(): void {
@@ -207,6 +208,7 @@ export class GroupListComponent implements OnInit {
   // }
 
   ngOnInit(): void {
+    this.title.setTitle("Groups")
     this.validateForm = this.fb.group({
       name: [null, [Validators.required]],
       division: [null, [Validators.required]],

@@ -7,6 +7,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Location} from "@angular/common";
 import {GroupRoleService} from "../../../lib/services/group-role/group-role.service";
 import {PaginationParams} from "../../../lib/classes/pagination-params";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'enr-workflow-detail',
@@ -25,7 +26,9 @@ export class WorkflowDetailComponent implements OnInit {
   formMode: 'new' | 'edit' = "new";
   roles: IGroupRole[] = [];
 
-  constructor(private fb: UntypedFormBuilder, private toastService: ToastService, private workflowService: WorkflowService, private _route: ActivatedRoute, private location: Location, private roleService: GroupRoleService) {
+  constructor(private fb: UntypedFormBuilder, private toastService: ToastService, private workflowService: WorkflowService,
+              private _route: ActivatedRoute, private location: Location, private roleService: GroupRoleService,
+              private title: Title) {
     this._route.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id) {
@@ -45,6 +48,7 @@ export class WorkflowDetailComponent implements OnInit {
       .subscribe(
         (response) => {
           if (response) {
+            this.title.setTitle(`${response.name}`)
             this.workflow = response
           } else {
             this.toastService.error("An error occurred, please try again")
@@ -151,6 +155,7 @@ export class WorkflowDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle("Workflow Details")
     this.validateForm = this.fb.group({
       name: [null, [Validators.required]],
       groupRoleId: [null, [Validators.required]],

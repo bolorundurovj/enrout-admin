@@ -6,6 +6,7 @@ import {PaginationParams} from "../../../lib/classes/pagination-params";
 import {IGroupRole, IPaginatedMetadata} from "../../../lib/interfaces";
 import {ToastService} from "../../../lib/services/toast.service";
 import {GroupRoleService} from "../../../lib/services/group-role/group-role.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'enr-group-role-list',
@@ -34,7 +35,7 @@ export class GroupRoleListComponent implements OnInit {
     "hasNextPage": true
   };
 
-  constructor(private fb: UntypedFormBuilder, private toastService: ToastService, private roleService: GroupRoleService) {
+  constructor(private fb: UntypedFormBuilder, private toastService: ToastService, private roleService: GroupRoleService, private title: Title) {
   }
 
   showModal(): void {
@@ -168,6 +169,7 @@ export class GroupRoleListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle("Group Roles")
     this.validateForm = this.fb.group({
       name: [null, [Validators.required]],
       designation: [null, [Validators.required]],

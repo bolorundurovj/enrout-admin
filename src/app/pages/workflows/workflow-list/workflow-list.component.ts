@@ -4,6 +4,7 @@ import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {PaginationParams} from "../../../lib/classes/pagination-params";
 import {ToastService} from "../../../lib/services/toast.service";
 import {WorkflowService} from "../../../lib/services/workflow/workflow.service";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'enr-workflow-list',
@@ -31,7 +32,7 @@ export class WorkflowListComponent implements OnInit {
     "hasNextPage": true
   };
 
-  constructor(private fb: UntypedFormBuilder, private toastService: ToastService, private workflowService: WorkflowService) {
+  constructor(private fb: UntypedFormBuilder, private toastService: ToastService, private workflowService: WorkflowService, private title: Title) {
   }
 
   showModal(): void {
@@ -165,6 +166,7 @@ export class WorkflowListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle("Workflows")
     this.validateForm = this.fb.group({
       name: [null, [Validators.required]]
     });

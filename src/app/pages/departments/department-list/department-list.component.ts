@@ -6,6 +6,7 @@ import {PaginationParams} from "../../../lib/classes/pagination-params";
 import {IDepartment, IPaginatedMetadata} from "../../../lib/interfaces";
 import {DepartmentService} from "../../../lib/services/department/department.service";
 import {GroupService} from "../../../lib/services/group/group.service";
+import {Title} from "@angular/platform-browser";
 
 
 export interface Data {
@@ -43,7 +44,7 @@ export class DepartmentListComponent implements OnInit {
   };
 
   constructor(private fb: UntypedFormBuilder, private toastService: ToastService,
-              private departmentService: DepartmentService, private groupService: GroupService) {
+              private departmentService: DepartmentService, private groupService: GroupService, private title: Title) {
   }
 
   showModal(): void {
@@ -201,6 +202,7 @@ export class DepartmentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle("Departments")
     this.validateForm = this.fb.group({
       name: [null, [Validators.required]],
       groupId: [null, [Validators.required]],
