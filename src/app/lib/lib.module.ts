@@ -18,7 +18,7 @@ import {NzAlertModule} from "ng-zorro-antd/alert";
     NzMenuModule,
     IconsProviderModule,
     RouterModule,
-    NzAlertModule
+    NzAlertModule,
   ],
   exports: [DefaultComponent, ToastComponent]
 })

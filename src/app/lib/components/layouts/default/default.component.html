@@ -7,7 +7,7 @@
             nzWidth="256px">
     <div class="sidebar-logo">
       <a routerLink="/" target="_blank">
-        <img alt="logo" src="https://ng.ant.design/assets/img/logo.svg">
+        <img alt="logo" src="./assets/futa-logo.png">
         <h1>Enrout Admin</h1>
       </a>
     </div>
@@ -15,35 +15,32 @@
       <li nz-submenu nzIcon="dashboard" nzOpen nzTitle="Dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
+            <a routerLink="/welcome">Overview</a>
           </li>
         </ul>
       </li>
-      <li nz-submenu nzIcon="form" nzOpen nzTitle="Groups">
+      <li nz-submenu nzIcon="team" nzOpen nzTitle="Groups">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a [routerLink]="['groups']">Groups List</a>
           </li>
         </ul>
       </li>
-      <li nz-submenu nzIcon="form" nzOpen nzTitle="Departments">
+      <li nz-submenu nzIcon="bank" nzOpen nzTitle="Departments">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a [routerLink]="['departments']">Department List</a>
           </li>
         </ul>
       </li>
-      <li nz-submenu nzIcon="form" nzOpen nzTitle="Group Roles">
+      <li nz-submenu nzIcon="solution" nzOpen nzTitle="Group Roles">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a [routerLink]="['group-roles']">Roles List</a>
           </li>
         </ul>
       </li>
-      <li nz-submenu nzIcon="form" nzOpen nzTitle="Workflows">
+      <li nz-submenu nzIcon="apartment" nzOpen nzTitle="Workflows">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a [routerLink]="['workflows']">Workflow List</a>
