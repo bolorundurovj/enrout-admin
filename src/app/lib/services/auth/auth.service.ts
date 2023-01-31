@@ -86,5 +86,6 @@ export class AuthService {
     storage.removeItem('App/session');
     storage.removeItem('App/token');
     this.isLoggedIn$.next(false);
+    this.router.navigateByUrl('auth/login')
   }
 }

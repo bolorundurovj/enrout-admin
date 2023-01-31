@@ -7,6 +7,7 @@ import {IconsProviderModule} from "../icons-provider.module";
 import {RouterModule} from "@angular/router";
 import { ToastComponent } from './components/toast/toast.component';
 import {NzAlertModule} from "ng-zorro-antd/alert";
+import {NzAvatarModule} from "ng-zorro-antd/avatar";
 
 
 
@@ -19,6 +20,7 @@ import {NzAlertModule} from "ng-zorro-antd/alert";
     IconsProviderModule,
     RouterModule,
     NzAlertModule,
+    NzAvatarModule
   ],
   exports: [DefaultComponent, ToastComponent]
 })
