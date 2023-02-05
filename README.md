@@ -1,6 +1,13 @@
 # EnroutAdmin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+<img src="./src/assets/app.png" alt="Enrout App" align="center">
+
+<p>
+  <b>Enrout-Admin is the administrator portal for the University Document Routing and Management System (Enrout), a web-based application designed to streamline the routing and management of official documents within a university. This system is built using Angular, a popular JavaScript framework for building dynamic web applications.</b></br>
+</p>
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#contributors)
+
 
 ## Development server
 
@@ -21,6 +28,26 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#contributors)
+
+## ➤ Contributors
+
+
+| [<img alt="Bolorunduro Valiant-Joshua" src="https://avatars.githubusercontent.com/u/20609046?v=4" width="100">](https://twitter.com/bolorundurovb) |
+|:--------------------------------------------------:|
+| [Bolorunduro Valiant-Joshua](https://twitter.com/bolorundurovb) |
+| [halexanderfleming@gmail.com](mailto:halexanderfleming@gmail.com) |
+| 🔥                                               |
+
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#license)
+
+## ➤ License
+
+Licensed under [MIT](https://opensource.org/licenses/MIT).
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#contributors)
 
 ## Further help
 
