@@ -1,5 +1,14 @@
 
 
+# [1.1.0](https://github.com/bolorundurovj/enrout-admin/compare/1.0.0...1.1.0) (2023-02-05)
+
+
+### Features
+
+* Add Logout ([b1bf5dc](https://github.com/bolorundurovj/enrout-admin/commit/b1bf5dcf83bf755fd0545fd36bf5518091a9e26d))
+* Add Page Titles ([e4d7813](https://github.com/bolorundurovj/enrout-admin/commit/e4d7813a57564b87e4341071f597b5b500dae076))
+* Protect Routes, Update UI ([e6369d9](https://github.com/bolorundurovj/enrout-admin/commit/e6369d98a6e26680cc89fe1613f21d0d3a0cdbb4))
+
 # [1.0.0](https://github.com/bolorundurovj/enrout-admin/compare/0.3.0...1.0.0) (2023-01-29)
 
 
