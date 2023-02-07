@@ -1,0 +1,99 @@
+<div class="site-page-header-ghost-wrapper mb-4">
+  <nz-page-header [nzGhost]="false" nzBackIcon>
+    <nz-page-header-title>{{workflow.name}}</nz-page-header-title>
+    <nz-page-header-subtitle>View the workflow an its associated items.</nz-page-header-subtitle>
+    <nz-page-header-extra>
+      <nz-space>
+        <!--        <button *nzSpaceItem nz-button>Operation</button>-->
+        <button (click)="showModal()" *nzSpaceItem class="flex flex-row items-center" nz-button nzType="primary">
+          <span nz-icon nzTheme="outline" nzType="plus"></span>
+          Add Workflow Item
+        </button>
+      </nz-space>
+    </nz-page-header-extra>
+    <nz-page-header-content>
+      <nz-descriptions [nzColumn]="3" nzSize="small">
+        <nz-descriptions-item [nzSpan]="1" nzTitle="Created By">N/A</nz-descriptions-item>
+        <nz-descriptions-item [nzSpan]="1" nzTitle="Items"><a>{{workflow.workflowItems.length}}</a>
+        </nz-descriptions-item>
+        <nz-descriptions-item [nzSpan]="1" nzTitle="Creation Date">{{workflow.createdAt | date}}</nz-descriptions-item>
+        <nz-descriptions-item [nzSpan]="1" nzTitle="Last Updated">{{workflow.updatedAt | date}}</nz-descriptions-item>
+      </nz-descriptions>
+    </nz-page-header-content>
+  </nz-page-header>
+</div>
+
+<div class="my-4 bg-gray-200 p-2">
+  <div class="mb-1 font-bold text-xl">Document Route:</div>
+  <div class="flex flex-row justify-start items-center">
+    <div *ngFor="let i of workflow.workflowItems; let idx = index;"
+         class="flex flex-row justify-start items-center font-bold">
+      <span>{{i.name}} [{{i.groupRole.name}}]</span>
+      <svg *ngIf="idx < workflow.workflowItems.length - 1" class="w-5 h-5 mx-1" fill="none"
+           stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<nz-table
+  #rowSelectionTable
+  [nzData]="workflow.workflowItems"
+  [nzLoading]="loading"
+  nzShowPagination
+  nzShowSizeChanger
+>
+  <thead>
+  <tr>
+    <th>S/N</th>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Group Role</th>
+    <th>Added On</th>
+    <th>Last Updated</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of rowSelectionTable.data; let i = index;">
+    <td>{{i + 1}}</td>
+    <td>{{ data.name }}</td>
+    <td>{{ data.position }}</td>
+    <td>{{ data.groupRole.name }}</td>
+    <td>{{ data.createdAt | date }}</td>
+    <td>{{ data.updatedAt | date }}</td>
+    <td>
+            <button (click)="deleteWorkflowItem(data)" [nzLoading]="isDeleting && workflow.id === data.id" nz-button nzDanger
+                    nzType="primary">Delete
+            </button>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+
+<nz-modal
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [(nzVisible)]="isVisible"
+  [nzOkLoading]="isOkLoading"
+  [nzTitle]="(formMode !== 'edit' ? 'Create A ' : 'Edit ') + 'Workflow Item'"
+>
+  <form *nzModalContent [formGroup]="validateForm" nz-form>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5" nzFor="name" nzRequired>Name</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="Please input the group name!">
+        <input formControlName="name" id="name" nz-input nzSize="default" type="text"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5" nzFor="group" nzRequired>Group Role</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="Please select a group!">
+        <nz-select formControlName="groupRoleId" id="group" nzSize="default">
+          <nz-option nzDisabled nzLabel="Disabled"></nz-option>
+          <nz-option *ngFor="let r of roles" [nzLabel]="r.name" [nzValue]="r.id"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-modal>
