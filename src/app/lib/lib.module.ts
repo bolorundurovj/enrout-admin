@@ -8,6 +8,7 @@ import {RouterModule} from "@angular/router";
 import { ToastComponent } from './components/toast/toast.component';
 import {NzAlertModule} from "ng-zorro-antd/alert";
 import {NzAvatarModule} from "ng-zorro-antd/avatar";
+import {NzDropDownModule} from "ng-zorro-antd/dropdown";
 
 
 
@@ -20,7 +21,8 @@ import {NzAvatarModule} from "ng-zorro-antd/avatar";
     IconsProviderModule,
     RouterModule,
     NzAlertModule,
-    NzAvatarModule
+    NzAvatarModule,
+    NzDropDownModule,
   ],
   exports: [DefaultComponent, ToastComponent]
 })

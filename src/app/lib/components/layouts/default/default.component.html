@@ -1,17 +1,18 @@
 <nz-layout class="app-layout">
-  <nz-sider [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null"
-            class="menu-sidebar"
-            nzBreakpoint="md"
-            nzCollapsible
-            nzWidth="256px">
+  <nz-sider
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null"
+    class="menu-sidebar"
+    nzBreakpoint="md"
+    nzCollapsible
+    nzWidth="256px">
     <div class="sidebar-logo">
       <a routerLink="/" target="_blank">
         <img alt="logo" src="./assets/futa-logo.png">
         <h1>Enrout Admin</h1>
       </a>
     </div>
-    <ul [nzInlineCollapsed]="isCollapsed" nz-menu nzMode="inline" nzTheme="dark">
+    <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu nzIcon="dashboard" nzOpen nzTitle="Dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
@@ -47,10 +48,6 @@
           </li>
         </ul>
       </li>
-      <li nz-menu-item (click)="logout()">
-        <span nz-icon nzType="logout"></span>
-        <span>Logout</span>
-      </li>
     </ul>
   </nz-sider>
   <nz-layout>
@@ -62,6 +59,21 @@
                nz-icon
             ></i>
         </span>
+        <span class="float-right mr-4">
+          <span class="font-bold mr-2">{{user?.firstName || 'NA'}} {{user?.lastName || 'NA'}}</span>
+          <nz-avatar [nzDropdownMenu]="menu"
+                     [nzSrc]="user?.avatar || 'https://avatars0.githubusercontent.com/u/22736418?s=88&v=4'" nz-dropdown
+                     nz-page-header-avatar></nz-avatar>
+        </span>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu nzSelectable>
+            <li nz-menu-item>Settings</li>
+            <li (click)="logout()" nz-menu-item nzDanger>
+              <span nz-icon nzType="logout"></span>
+              <span class="ml-2">Log Out</span>
+            </li>
+          </ul>
+        </nz-dropdown-menu>
       </div>
     </nz-header>
     <nz-content>

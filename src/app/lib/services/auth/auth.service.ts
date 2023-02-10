@@ -23,6 +23,10 @@ export class AuthService {
     return this.isLoggedIn$.getValue();
   }
 
+  get loggedInUser(): IUser | undefined  {
+    return storage.getItem('App/session')?.user;
+  }
+
   /**
    * It takes in an email and password, sends a post request to the backend, and if the response is successful, it stores
    * the response in the browser's local storage, and navigates to the home page
