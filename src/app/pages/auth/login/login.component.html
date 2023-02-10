@@ -20,7 +20,8 @@
     <!--    <div class="login-form-margin" nz-row>-->
     <!--            <a class="login-form-forgot" routerLink="/auth/forgot-password">Forgot password?</a>-->
     <!--    </div>-->
-    <button [nzType]="'primary'" class="login-form-button login-form-margin" nz-button>Log in</button>
+    <button [nzLoading]="isLoading" [nzType]="'primary'" class="login-form-button login-form-margin" nz-button>Log in
+    </button>
     <!--    Or-->
     <!--    <a routerLink="/auth/register">register now!</a>-->
   </form>

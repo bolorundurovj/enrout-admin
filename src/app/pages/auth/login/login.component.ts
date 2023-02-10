@@ -9,13 +9,14 @@ import {AuthService} from "../../../lib/services/auth/auth.service";
 })
 export class LoginComponent implements OnInit {
   validateForm!: UntypedFormGroup;
+  isLoading = false;
 
   constructor(private _authService: AuthService, private fb: UntypedFormBuilder) {
   }
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
+      this.isLoading = true;
       this._authService.login(this.validateForm.value['email'], this.validateForm.value['password']);
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
@@ -28,6 +29,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._authService.isLoggedIn$.subscribe(() => {
+      this.isLoading = false;
+    })
     this.validateForm = this.fb.group({
       email: [null, [Validators.required]],
       password: [null, [Validators.required]],
