@@ -277,6 +277,13 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/service-worker@^15.1.2":
+  version "15.1.4"
+  resolved "https://registry.yarnpkg.com/@angular/service-worker/-/service-worker-15.1.4.tgz#808b593f04fdbedc8e0735a91a77c3e5d03eb8f2"
+  integrity sha512-85uBmO2dbPMl+MmHkWJlFHarv63DUWt5WW8hNCfFbhrb29n9HAIm4ySaRafNm7LbTOQVb/1GA+IcTJ79ryWdCA==
+  dependencies:
+    tslib "^2.3.0"
+
 "@ant-design/colors@^5.0.0":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@ant-design/colors/-/colors-5.1.1.tgz#800b2186b1e27e66432e67d03ed96af3e21d8940"
