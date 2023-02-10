@@ -12,6 +12,7 @@ import {NzDividerModule} from "ng-zorro-antd/divider";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {IconsProviderModule} from "../../icons-provider.module";
 import {NzSelectModule} from "ng-zorro-antd/select";
+import {NzPageHeaderModule} from "ng-zorro-antd/page-header";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {NzSelectModule} from "ng-zorro-antd/select";
     NzDividerModule,
     NzInputModule,
     IconsProviderModule,
-    NzSelectModule
+    NzSelectModule,
+    NzPageHeaderModule
   ]
 })
 export class DepartmentsModule {

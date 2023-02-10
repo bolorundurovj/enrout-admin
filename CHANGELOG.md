@@ -1,5 +1,28 @@
 
 
+# [2.0.0](https://github.com/bolorundurovj/enrout-admin/compare/1.1.0...2.0.0) (2023-02-10)
+
+
+### Bug Fixes
+
+* Display Issues ([b3b714f](https://github.com/bolorundurovj/enrout-admin/commit/b3b714faeac8f7954f8e8e3a6cc171f45bc8ed4e))
+* Linting Issues ([2f5d90d](https://github.com/bolorundurovj/enrout-admin/commit/2f5d90d72f139aa82563cec3a4e017e8a11b4307))
+
+
+### Features
+
+* Add Page Headers ([7d62f4e](https://github.com/bolorundurovj/enrout-admin/commit/7d62f4ee729004dffe92d010f0d7219a803173af))
+* **auth:** Add JsDoc to methods ([4f57198](https://github.com/bolorundurovj/enrout-admin/commit/4f571988ec8f4b7515893819c4e35b6f2c55434a))
+* **auth:** Add loading state to login button ([fd66635](https://github.com/bolorundurovj/enrout-admin/commit/fd66635afd32d05f3fef5231b0103c7471cc5fcd))
+* **auth:** Update Auth Page UI ([a8872fb](https://github.com/bolorundurovj/enrout-admin/commit/a8872fbe06bb1e43c7986027fa9eac4ffdaa649a))
+* Update Layout ([b98e4bf](https://github.com/bolorundurovj/enrout-admin/commit/b98e4bf9e8ceddd1a07f9f7b7081944349ebc28e))
+* Update Layout Overflow ([a1b253d](https://github.com/bolorundurovj/enrout-admin/commit/a1b253dd5f35210c27398ab82b72f91be1074f3a))
+
+
+### Performance Improvements
+
+* Setup Linting ([69caa40](https://github.com/bolorundurovj/enrout-admin/commit/69caa40695d04cf92a24da6247e528adf5dfe014))
+
 # [1.1.0](https://github.com/bolorundurovj/enrout-admin/compare/1.0.0...1.1.0) (2023-02-05)
 
 

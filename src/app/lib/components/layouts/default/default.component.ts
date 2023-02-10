@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthService} from "../../../services/auth/auth.service";
 
 @Component({
@@ -6,16 +6,14 @@ import {AuthService} from "../../../services/auth/auth.service";
   templateUrl: './default.component.html',
   styleUrls: ['./default.component.scss']
 })
-export class DefaultComponent implements OnInit {
-  public isCollapsed: boolean = false;
+export class DefaultComponent {
+  user = this._authService.loggedInUser;
+  isCollapsed = false;
 
-  constructor(private _authService: AuthService) { }
-
-  ngOnInit(): void {
+  constructor(private _authService: AuthService) {
   }
 
   logout() {
     this._authService.logout()
   }
-
 }

@@ -23,6 +23,16 @@ export class AuthService {
     return this.isLoggedIn$.getValue();
   }
 
+  get loggedInUser(): IUser | undefined  {
+    return storage.getItem('App/session')?.user;
+  }
+
+  /**
+   * It takes in an email and password, sends a post request to the backend, and if the response is successful, it stores
+   * the response in the browser's local storage, and navigates to the home page
+   * @param {string} email - The email address of the user
+   * @param {string} password - string - The password of the user
+   */
   login(email: string, password: string): void {
     const authData = {email: email, password: password};
     this.http
@@ -37,9 +47,7 @@ export class AuthService {
             storage.setItem('App/token', response.token.accessToken);
             this.toast.success(`Logged in successfully`);
             this.isLoggedIn$.next(true);
-            this.router.navigate(['/']).then(() => {
-
-            })
+            this.router.navigate(['/']);
           } else {
             this.toast.error("An error occurred, please try again")
           }
@@ -51,10 +59,16 @@ export class AuthService {
       );
   }
 
+  /**
+   * It takes a user object, converts it to a form data object, and sends it to the backend
+   * @param {IRegistrationRequest} user - IRegistrationRequest
+   */
   register(user: IRegistrationRequest): void {
     const authData = new FormData();
     for (const key in user) {
+      // eslint-disable-next-line
       if (user.hasOwnProperty(key)) {
+        // eslint-disable-next-line
         // @ts-ignore
         authData.append(key, user[key]);
       }
@@ -68,9 +82,7 @@ export class AuthService {
         (response) => {
           if (response) {
             this.toast.success(`Registered successfully`);
-            this.router.navigate(['/auth/login']).then(() => {
-
-            })
+            this.router.navigate(['/auth/login']);
           } else {
             this.toast.error("An error occurred, please try again")
           }
@@ -82,6 +94,10 @@ export class AuthService {
       );
   }
 
+  /**
+   * It removes the session and token from local storage, sets the isLoggedIn$ observable to false, and navigates to the
+   * login page
+   */
   logout(): void {
     storage.removeItem('App/session');
     storage.removeItem('App/token');

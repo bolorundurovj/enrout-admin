@@ -12,6 +12,7 @@ import {NzModalModule} from "ng-zorro-antd/modal";
 import {IconsProviderModule} from "../../icons-provider.module";
 import {NzDividerModule} from "ng-zorro-antd/divider";
 import {NzInputModule} from "ng-zorro-antd/input";
+import {NzPageHeaderModule} from "ng-zorro-antd/page-header";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {NzInputModule} from "ng-zorro-antd/input";
     NzModalModule,
     IconsProviderModule,
     NzDividerModule,
-    NzInputModule
+    NzInputModule,
+    NzPageHeaderModule
   ]
 })
 export class GroupRolesModule {

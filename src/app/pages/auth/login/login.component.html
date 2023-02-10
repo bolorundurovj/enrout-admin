@@ -1,25 +1,29 @@
 <div class="flex flex-col justify-center items-center h-full">
+  <div class="mb-4">
+    <img alt="App Logo" class="w-12 h-12" src="./assets/futa-logo.png"/>
+  </div>
   <form (ngSubmit)="submitForm()" [formGroup]="validateForm" class="login-form" nz-form>
     <nz-form-item>
-      <nz-form-control nzErrorTip="Please input your email!">
+      <nz-form-control nzErrorTip="Please a valid email!">
         <nz-input-group nzPrefixIcon="user">
           <input formControlName="email" nz-input placeholder="Email" type="text"/>
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-control nzErrorTip="Please input your Password!">
+      <nz-form-control nzErrorTip="Please input your password!">
         <nz-input-group nzPrefixIcon="lock">
           <input formControlName="password" nz-input placeholder="Password" type="password"/>
         </nz-input-group>
       </nz-form-control>
     </nz-form-item>
-    <div class="login-form-margin" nz-row>
-        <a class="login-form-forgot" routerLink="/auth/forgot-password">Forgot password</a>
-    </div>
-    <button [nzType]="'primary'" class="login-form-button login-form-margin" nz-button>Log in</button>
-    Or
-    <a routerLink="/auth/register">register now!</a>
+    <!--    <div class="login-form-margin" nz-row>-->
+    <!--            <a class="login-form-forgot" routerLink="/auth/forgot-password">Forgot password?</a>-->
+    <!--    </div>-->
+    <button [nzLoading]="isLoading" [nzType]="'primary'" class="login-form-button login-form-margin" nz-button>Log in
+    </button>
+    <!--    Or-->
+    <!--    <a routerLink="/auth/register">register now!</a>-->
   </form>
 </div>
 
