@@ -5,7 +5,7 @@ export class ToastMessage {
   key: string = (Math.random() * 10000).toString();
   content: string;
   style: "success" | "info" | "warning" | "error";
-  time: Number = new Date().getTime()
+  time: number = new Date().getTime()
 
   constructor(content: string, style?: "success" | "info" | "warning" | "error") {
     this.content = content;
@@ -18,9 +18,6 @@ export class ToastMessage {
 })
 export class ToastService {
   messages$: BehaviorSubject<Array<ToastMessage>> = new BehaviorSubject<Array<ToastMessage>>([])
-
-  constructor() {
-  }
 
   getMessages() {
     return this.messages$.asObservable();

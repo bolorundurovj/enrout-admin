@@ -8,7 +8,7 @@ import {AuthService} from "../../../services/auth/auth.service";
 })
 export class DefaultComponent {
   user = this._authService.loggedInUser;
-  isCollapsed: boolean = false;
+  isCollapsed = false;
 
   constructor(private _authService: AuthService) {
   }

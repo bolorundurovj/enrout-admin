@@ -47,9 +47,7 @@ export class AuthService {
             storage.setItem('App/token', response.token.accessToken);
             this.toast.success(`Logged in successfully`);
             this.isLoggedIn$.next(true);
-            this.router.navigate(['/']).then(() => {
-
-            })
+            this.router.navigate(['/']);
           } else {
             this.toast.error("An error occurred, please try again")
           }
@@ -68,7 +66,9 @@ export class AuthService {
   register(user: IRegistrationRequest): void {
     const authData = new FormData();
     for (const key in user) {
+      // eslint-disable-next-line
       if (user.hasOwnProperty(key)) {
+        // eslint-disable-next-line
         // @ts-ignore
         authData.append(key, user[key]);
       }
@@ -82,9 +82,7 @@ export class AuthService {
         (response) => {
           if (response) {
             this.toast.success(`Registered successfully`);
-            this.router.navigate(['/auth/login']).then(() => {
-
-            })
+            this.router.navigate(['/auth/login']);
           } else {
             this.toast.error("An error occurred, please try again")
           }
