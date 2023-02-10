@@ -12,6 +12,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {NzInputModule} from "ng-zorro-antd/input";
 import {NzDividerModule} from "ng-zorro-antd/divider";
 import {NzSelectModule} from "ng-zorro-antd/select";
+import {NzPageHeaderModule} from "ng-zorro-antd/page-header";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {NzSelectModule} from "ng-zorro-antd/select";
     ReactiveFormsModule,
     NzInputModule,
     NzDividerModule,
-    NzSelectModule
+    NzSelectModule,
+    NzPageHeaderModule
   ]
 })
 export class GroupsModule {
