@@ -23,6 +23,12 @@ export class AuthService {
     return this.isLoggedIn$.getValue();
   }
 
+  /**
+   * It takes in an email and password, sends a post request to the backend, and if the response is successful, it stores
+   * the response in the browser's local storage, and navigates to the home page
+   * @param {string} email - The email address of the user
+   * @param {string} password - string - The password of the user
+   */
   login(email: string, password: string): void {
     const authData = {email: email, password: password};
     this.http
@@ -51,6 +57,10 @@ export class AuthService {
       );
   }
 
+  /**
+   * It takes a user object, converts it to a form data object, and sends it to the backend
+   * @param {IRegistrationRequest} user - IRegistrationRequest
+   */
   register(user: IRegistrationRequest): void {
     const authData = new FormData();
     for (const key in user) {
@@ -82,6 +92,10 @@ export class AuthService {
       );
   }
 
+  /**
+   * It removes the session and token from local storage, sets the isLoggedIn$ observable to false, and navigates to the
+   * login page
+   */
   logout(): void {
     storage.removeItem('App/session');
     storage.removeItem('App/token');
