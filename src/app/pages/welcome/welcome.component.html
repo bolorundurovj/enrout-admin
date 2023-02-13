@@ -3,34 +3,51 @@
     <div [nzGutter]="8" nz-row>
       <div [nzSpan]="8" nz-col>
         <nz-card nzTitle="Users">
-          <p>0</p>
+          <p>{{stats.users}}</p>
         </nz-card>
       </div>
       <div [nzSpan]="8" nz-col>
         <nz-card nzTitle="Groups">
-          <p>0</p>
+          <p>{{stats.groups}}</p>
         </nz-card>
       </div>
       <div [nzSpan]="8" nz-col>
         <nz-card nzTitle="Workflows">
-          <p>0</p>
+          <p>{{stats.workflows}}</p>
         </nz-card>
       </div>
     </div>
-    <div [nzGutter]="8" nz-row class="mt-5">
+    <div [nzGutter]="8" class="mt-5" nz-row>
       <div [nzSpan]="8" nz-col>
         <nz-card nzTitle="Documents">
-          <p>0</p>
+          <p>{{stats.documents}}</p>
         </nz-card>
       </div>
       <div [nzSpan]="8" nz-col>
         <nz-card nzTitle="Staff">
-          <p>0</p>
+          <p>{{stats.staff}}</p>
         </nz-card>
       </div>
       <div [nzSpan]="8" nz-col>
         <nz-card nzTitle="Students">
-          <p>0</p>
+          <p>{{stats.students}}</p>
+        </nz-card>
+      </div>
+    </div>
+    <div [nzGutter]="8" class="mt-5" nz-row>
+      <div [nzSpan]="8" nz-col>
+        <nz-card nzTitle="Admins">
+          <p>{{stats.admins}}</p>
+        </nz-card>
+      </div>
+      <div [nzSpan]="8" nz-col>
+        <nz-card nzTitle="Group Roles">
+          <p>{{stats.groupRoles}}</p>
+        </nz-card>
+      </div>
+      <div [nzSpan]="8" nz-col>
+        <nz-card nzTitle="Departments">
+          <p>{{stats.departments}}</p>
         </nz-card>
       </div>
     </div>
