@@ -31,25 +31,35 @@ export class ToastService {
   success(content: string) {
     const message = new ToastMessage(content, "success");
     this.messages$.next([...this.messages$.value, message])
+    this.timeMessage(message.key)
   }
 
   info(content: string) {
     const message = new ToastMessage(content, "info");
     this.messages$.next([...this.messages$.value, message])
+    this.timeMessage(message.key)
   }
 
   warning(content: string) {
     const message = new ToastMessage(content, "warning");
     this.messages$.next([...this.messages$.value, message])
+    this.timeMessage(message.key)
   }
 
   error(content: string) {
     const message = new ToastMessage(content, "error");
     this.messages$.next([...this.messages$.value, message])
+    this.timeMessage(message.key)
   }
 
   dismissMessage(messageKey: string) {
     const arr = this.messages$.value.filter((x) => x.key !== messageKey)
     this.messages$.next(arr)
+  }
+
+  timeMessage(message: string) {
+    setTimeout(() => {
+      this.dismissMessage(message)
+    }, 3000)
   }
 }

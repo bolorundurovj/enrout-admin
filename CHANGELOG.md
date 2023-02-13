@@ -1,5 +1,22 @@
 
 
+# [2.2.0](https://github.com/bolorundurovj/enrout-admin/compare/2.1.0...2.2.0) (2023-02-13)
+
+
+### Features
+
+* Display Stats ([e757a7e](https://github.com/bolorundurovj/enrout-admin/commit/e757a7e104027d12777025b9adaf2302747d4c51))
+* Update API Url ([3c2fe04](https://github.com/bolorundurovj/enrout-admin/commit/3c2fe04e65772cb58bf07dcfc83b375dc8cee482))
+
+# [2.1.0](https://github.com/bolorundurovj/enrout-admin/compare/2.0.0...2.1.0) (2023-02-10)
+
+
+### Features
+
+* Add Network Connectivity Monitor ([5fa3fd9](https://github.com/bolorundurovj/enrout-admin/commit/5fa3fd95b37440ebdb330dd07a374930e3e7b6ca))
+* Auto Dismiss Toasts ([cdc0708](https://github.com/bolorundurovj/enrout-admin/commit/cdc0708d4488300d352534521800607a7d7aca9d))
+* Setup PWA ([eb786a5](https://github.com/bolorundurovj/enrout-admin/commit/eb786a5bc068387dd6cba6373a5a0a185272dbd2))
+
 # [2.0.0](https://github.com/bolorundurovj/enrout-admin/compare/1.1.0...2.0.0) (2023-02-10)
 
 

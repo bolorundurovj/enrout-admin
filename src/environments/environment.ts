@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://enrout-api-dev.onrender.com'
+  apiUrl: 'https://enrout-api-dev.herokuapp.com'
 };
 
 /*
