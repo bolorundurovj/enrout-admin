@@ -1,5 +1,12 @@
 
 
+## [2.2.1](https://github.com/bolorundurovj/enrout-admin/compare/2.2.0...2.2.1) (2023-02-17)
+
+
+### Features
+
+* Update API Url ([5af2fbf](https://github.com/bolorundurovj/enrout-admin/commit/5af2fbf21806406aeb3fc91a38d25e67d60941f6))
+
 # [2.2.0](https://github.com/bolorundurovj/enrout-admin/compare/2.1.0...2.2.0) (2023-02-13)
 
 
