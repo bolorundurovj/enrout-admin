@@ -1,0 +1,836 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>enrout-admin documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">enrout-admin documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  RegisterComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/auth/register/register.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>enr-register</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./register.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./register.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#captchaTooltipIcon" >captchaTooltipIcon</a>
+                            </li>
+                            <li>
+                                <a href="#confirmationValidator" >confirmationValidator</a>
+                            </li>
+                            <li>
+                                <a href="#validateForm" >validateForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getCaptcha" >getCaptcha</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#submitForm" >submitForm</a>
+                            </li>
+                            <li>
+                                <a href="#updateConfirmValidator" >updateConfirmValidator</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: UntypedFormBuilder, _authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/auth/register/register.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>UntypedFormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCaptcha"></a>
+                    <span class="name">
+                        <span ><b>getCaptcha</b></span>
+                        <a href="#getCaptcha"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCaptcha(e: MouseEvent)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/pages/auth/register/register.component.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>e</td>
+                                    <td>
+                                            <code>MouseEvent</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/pages/auth/register/register.component.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitForm"></a>
+                    <span class="name">
+                        <span ><b>submitForm</b></span>
+                        <a href="#submitForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/pages/auth/register/register.component.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateConfirmValidator"></a>
+                    <span class="name">
+                        <span ><b>updateConfirmValidator</b></span>
+                        <a href="#updateConfirmValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateConfirmValidator()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/pages/auth/register/register.component.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="captchaTooltipIcon"></a>
+                    <span class="name">
+                        <span ><b>captchaTooltipIcon</b></span>
+                        <a href="#captchaTooltipIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>NzFormTooltipIcon</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    type: &#x27;info-circle&#x27;,
+    theme: &#x27;twotone&#x27;
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/auth/register/register.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmationValidator"></a>
+                    <span class="name">
+                        <span ><b>confirmationValidator</b></span>
+                        <a href="#confirmationValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/auth/register/register.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateForm"></a>
+                    <span class="name">
+                        <span ><b>validateForm</b></span>
+                        <a href="#validateForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UntypedFormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/auth/register/register.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, OnInit} from &#x27;@angular/core&#x27;;
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators} from &#x27;@angular/forms&#x27;;
+
+import {NzFormTooltipIcon} from &#x27;ng-zorro-antd/form&#x27;;
+import {IRegistrationRequest} from &quot;../../../lib/interfaces&quot;;
+import {AuthService} from &quot;../../../lib/services/auth/auth.service&quot;;
+
+@Component({
+  selector: &#x27;enr-register&#x27;,
+  templateUrl: &#x27;./register.component.html&#x27;,
+
+  styleUrls: [&#x27;./register.component.scss&#x27;]
+})
+export class RegisterComponent implements OnInit {
+  validateForm!: UntypedFormGroup;
+  captchaTooltipIcon: NzFormTooltipIcon &#x3D; {
+    type: &#x27;info-circle&#x27;,
+    theme: &#x27;twotone&#x27;
+  };
+
+  constructor(private fb: UntypedFormBuilder, private _authService: AuthService) {
+  }
+
+  submitForm(): void {
+    if (this.validateForm.valid) {
+      console.log(&#x27;submit&#x27;, this.validateForm.value);
+      const user: IRegistrationRequest &#x3D; this.validateForm.value;
+      this._authService.register(user)
+    } else {
+      Object.values(this.validateForm.controls).forEach(control &#x3D;&gt; {
+        if (control.invalid) {
+          control.markAsDirty();
+          control.updateValueAndValidity({onlySelf: true});
+        }
+      });
+    }
+  }
+
+  updateConfirmValidator(): void {
+    /** wait for refresh value */
+    Promise.resolve().then(() &#x3D;&gt; this.validateForm.controls[&#x27;checkPassword&#x27;].updateValueAndValidity());
+  }
+
+  confirmationValidator &#x3D; (control: UntypedFormControl): { [s: string]: boolean } &#x3D;&gt; {
+    if (!control.value) {
+      return {required: true};
+    } else if (control.value !&#x3D;&#x3D; this.validateForm.controls[&#x27;password&#x27;].value) {
+      return {confirm: true, error: true};
+    }
+    return {};
+  };
+
+  getCaptcha(e: MouseEvent): void {
+    e.preventDefault();
+  }
+
+  ngOnInit(): void {
+    this.validateForm &#x3D; this.fb.group({
+      email: [null, [Validators.email, Validators.required]],
+      password: [null, [Validators.required]],
+      universityId: [null, [Validators.required]],
+      checkPassword: [null, [Validators.required, this.confirmationValidator]],
+      firstName: [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
+      phone: [null, [Validators.required]],
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;flex flex-col justify-center items-center h-full&quot;&gt;
+  &lt;div class&#x3D;&quot;mb-4&quot;&gt;
+    &lt;img alt&#x3D;&quot;App Logo&quot; class&#x3D;&quot;w-12 h-12&quot; src&#x3D;&quot;./assets/futa-logo.png&quot;/&gt;
+  &lt;/div&gt;
+  &lt;form (ngSubmit)&#x3D;&quot;submitForm()&quot; [formGroup]&#x3D;&quot;validateForm&quot; class&#x3D;&quot;w-full&quot; nz-form&gt;
+    &lt;nz-form-item class&#x3D;&quot;w-full&quot;&gt;
+      &lt;nz-form-label [nzSm]&#x3D;&quot;6&quot; [nzXs]&#x3D;&quot;24&quot; nzFor&#x3D;&quot;firstName&quot; nzRequired&gt;First Name&lt;/nz-form-label&gt;
+      &lt;nz-form-control [nzSm]&#x3D;&quot;14&quot; [nzXs]&#x3D;&quot;24&quot; nzErrorTip&#x3D;&quot;The input is not valid!&quot;&gt;
+        &lt;input formControlName&#x3D;&quot;firstName&quot; id&#x3D;&quot;firstName&quot; nz-input/&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+    &lt;nz-form-item&gt;
+      &lt;nz-form-label [nzSm]&#x3D;&quot;6&quot; [nzXs]&#x3D;&quot;24&quot; nzFor&#x3D;&quot;lastName&quot; nzRequired&gt;Last Name&lt;/nz-form-label&gt;
+      &lt;nz-form-control [nzSm]&#x3D;&quot;14&quot; [nzXs]&#x3D;&quot;24&quot; nzErrorTip&#x3D;&quot;The input is not valid!&quot;&gt;
+        &lt;input formControlName&#x3D;&quot;lastName&quot; id&#x3D;&quot;lastName&quot; nz-input/&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+    &lt;nz-form-item&gt;
+      &lt;nz-form-label [nzSm]&#x3D;&quot;6&quot; [nzXs]&#x3D;&quot;24&quot; nzFor&#x3D;&quot;email&quot; nzRequired&gt;E-mail&lt;/nz-form-label&gt;
+      &lt;nz-form-control [nzSm]&#x3D;&quot;14&quot; [nzXs]&#x3D;&quot;24&quot; nzErrorTip&#x3D;&quot;The input is not valid E-mail!&quot;&gt;
+        &lt;input formControlName&#x3D;&quot;email&quot; id&#x3D;&quot;email&quot; nz-input/&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+    &lt;nz-form-item&gt;
+      &lt;nz-form-label [nzSm]&#x3D;&quot;6&quot; [nzXs]&#x3D;&quot;24&quot; nzFor&#x3D;&quot;universityId&quot; nzRequired&gt;University ID&lt;/nz-form-label&gt;
+      &lt;nz-form-control [nzSm]&#x3D;&quot;14&quot; [nzXs]&#x3D;&quot;24&quot; nzErrorTip&#x3D;&quot;The input is not valid ID!&quot;&gt;
+        &lt;input formControlName&#x3D;&quot;universityId&quot; id&#x3D;&quot;universityId&quot; nz-input/&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+    &lt;nz-form-item&gt;
+      &lt;nz-form-label [nzSm]&#x3D;&quot;6&quot; [nzXs]&#x3D;&quot;24&quot; nzFor&#x3D;&quot;password&quot; nzRequired&gt;Password&lt;/nz-form-label&gt;
+      &lt;nz-form-control [nzSm]&#x3D;&quot;14&quot; [nzXs]&#x3D;&quot;24&quot; nzErrorTip&#x3D;&quot;Please input your password!&quot;&gt;
+        &lt;input
+          (ngModelChange)&#x3D;&quot;updateConfirmValidator()&quot;
+          formControlName&#x3D;&quot;password&quot;
+          id&#x3D;&quot;password&quot;
+          nz-input
+          type&#x3D;&quot;password&quot;
+        /&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+    &lt;nz-form-item&gt;
+      &lt;nz-form-label [nzSm]&#x3D;&quot;6&quot; [nzXs]&#x3D;&quot;24&quot; nzFor&#x3D;&quot;checkPassword&quot; nzRequired&gt;Confirm Password&lt;/nz-form-label&gt;
+      &lt;nz-form-control [nzErrorTip]&#x3D;&quot;errorTpl&quot; [nzSm]&#x3D;&quot;14&quot; [nzXs]&#x3D;&quot;24&quot;&gt;
+        &lt;input formControlName&#x3D;&quot;checkPassword&quot; id&#x3D;&quot;checkPassword&quot; nz-input type&#x3D;&quot;password&quot;/&gt;
+        &lt;ng-template #errorTpl let-control&gt;
+          &lt;ng-container *ngIf&#x3D;&quot;control.hasError(&#x27;required&#x27;)&quot;&gt;Please confirm your password!&lt;/ng-container&gt;
+          &lt;ng-container *ngIf&#x3D;&quot;control.hasError(&#x27;confirm&#x27;)&quot;&gt;
+            Two passwords that you enter is inconsistent!
+          &lt;/ng-container&gt;
+        &lt;/ng-template&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+    &lt;nz-form-item&gt;
+      &lt;nz-form-label [nzSm]&#x3D;&quot;6&quot; [nzXs]&#x3D;&quot;24&quot; nzFor&#x3D;&quot;phoneNumber&quot; nzRequired&gt;Phone Number&lt;/nz-form-label&gt;
+      &lt;nz-form-control
+        [nzSm]&#x3D;&quot;14&quot;
+        [nzValidateStatus]&#x3D;&quot;validateForm.controls[&#x27;phoneNumber&#x27;]&quot;
+        [nzXs]&#x3D;&quot;24&quot;
+        nzErrorTip&#x3D;&quot;Please input your phone number!&quot;
+      &gt;
+        &lt;input formControlName&#x3D;&quot;phone&quot; id&#x3D;&quot;&#x27;phoneNumber&#x27;&quot; nz-input/&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+    &lt;!--    &lt;nz-form-item&gt;--&gt;
+    &lt;!--      &lt;nz-form-label--&gt;
+    &lt;!--        [nzSm]&#x3D;&quot;6&quot;--&gt;
+    &lt;!--        [nzTooltipIcon]&#x3D;&quot;captchaTooltipIcon&quot;--&gt;
+    &lt;!--        [nzXs]&#x3D;&quot;24&quot;--&gt;
+    &lt;!--        nzFor&#x3D;&quot;captcha&quot;--&gt;
+    &lt;!--        nzRequired--&gt;
+    &lt;!--        nzTooltipTitle&#x3D;&quot;Please click &#x27;Get captcha&#x27;&quot;--&gt;
+    &lt;!--      &gt;--&gt;
+    &lt;!--        Captcha--&gt;
+    &lt;!--      &lt;/nz-form-label&gt;--&gt;
+    &lt;!--      &lt;nz-form-control--&gt;
+    &lt;!--        [nzSm]&#x3D;&quot;14&quot;--&gt;
+    &lt;!--        [nzXs]&#x3D;&quot;24&quot;--&gt;
+    &lt;!--        nzErrorTip&#x3D;&quot;Please input the captcha you got!&quot;--&gt;
+    &lt;!--        nzExtra&#x3D;&quot;We must make sure that your are a human.&quot;--&gt;
+    &lt;!--      &gt;--&gt;
+    &lt;!--        &lt;div [nzGutter]&#x3D;&quot;8&quot; nz-row&gt;--&gt;
+    &lt;!--          &lt;div [nzSpan]&#x3D;&quot;12&quot; nz-col&gt;--&gt;
+    &lt;!--            &lt;input formControlName&#x3D;&quot;captcha&quot; id&#x3D;&quot;captcha&quot; nz-input/&gt;--&gt;
+    &lt;!--          &lt;/div&gt;--&gt;
+    &lt;!--          &lt;div [nzSpan]&#x3D;&quot;12&quot; nz-col&gt;--&gt;
+    &lt;!--            &lt;button (click)&#x3D;&quot;getCaptcha($event)&quot; nz-button&gt;Get captcha&lt;/button&gt;--&gt;
+    &lt;!--          &lt;/div&gt;--&gt;
+    &lt;!--        &lt;/div&gt;--&gt;
+    &lt;!--      &lt;/nz-form-control&gt;--&gt;
+    &lt;!--    &lt;/nz-form-item&gt;--&gt;
+    &lt;nz-form-item class&#x3D;&quot;register-area&quot; nz-row&gt;
+      &lt;nz-form-control [nzOffset]&#x3D;&quot;6&quot; [nzSpan]&#x3D;&quot;14&quot;&gt;
+        &lt;label&gt;
+            &lt;span&gt;
+              Don&#x27;t have an account?
+              &lt;a routerLink&#x3D;&quot;/auth/login&quot;&gt;login here&lt;/a&gt;
+            &lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+    &lt;nz-form-item class&#x3D;&quot;register-area&quot; nz-row&gt;
+      &lt;nz-form-control [nzOffset]&#x3D;&quot;6&quot; [nzSpan]&#x3D;&quot;14&quot;&gt;
+        &lt;button nz-button nzType&#x3D;&quot;primary&quot; type&#x3D;&quot;submit&quot;&gt;Register&lt;/button&gt;
+      &lt;/nz-form-control&gt;
+    &lt;/nz-form-item&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./register.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">
+      [nz-form] {
+        max-width: 600px;
+      }
+
+      .phone-select {
+        width: 70px;
+      }
+
+      .register-are {
+        margin-bottom: 8px;
+      }
+    </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="flex flex-col justify-center items-center h-full">  <div class="mb-4">    <img alt="App Logo" class="w-12 h-12" src="./assets/futa-logo.png"/>  </div>  <form (ngSubmit)="submitForm()" [formGroup]="validateForm" class="w-full" nz-form>    <nz-form-item class="w-full">      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="firstName" nzRequired>First Name</nz-form-label>      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid!">        <input formControlName="firstName" id="firstName" nz-input/>      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastName" nzRequired>Last Name</nz-form-label>      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid!">        <input formControlName="lastName" id="lastName" nz-input/>      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="email" nzRequired>E-mail</nz-form-label>      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">        <input formControlName="email" id="email" nz-input/>      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="universityId" nzRequired>University ID</nz-form-label>      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid ID!">        <input formControlName="universityId" id="universityId" nz-input/>      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="password" nzRequired>Password</nz-form-label>      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input your password!">        <input          (ngModelChange)="updateConfirmValidator()"          formControlName="password"          id="password"          nz-input          type="password"        />      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired>Confirm Password</nz-form-label>      <nz-form-control [nzErrorTip]="errorTpl" [nzSm]="14" [nzXs]="24">        <input formControlName="checkPassword" id="checkPassword" nz-input type="password"/>        <ng-template #errorTpl let-control>          <ng-container *ngIf="control.hasError(\'required\')">Please confirm your password!</ng-container>          <ng-container *ngIf="control.hasError(\'confirm\')">            Two passwords that you enter is inconsistent!          </ng-container>        </ng-template>      </nz-form-control>    </nz-form-item>    <nz-form-item>      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired>Phone Number</nz-form-label>      <nz-form-control        [nzSm]="14"        [nzValidateStatus]="validateForm.controls[\'phoneNumber\']"        [nzXs]="24"        nzErrorTip="Please input your phone number!"      >        <input formControlName="phone" id="\'phoneNumber\'" nz-input/>      </nz-form-control>    </nz-form-item>    <!--    <nz-form-item>-->    <!--      <nz-form-label-->    <!--        [nzSm]="6"-->    <!--        [nzTooltipIcon]="captchaTooltipIcon"-->    <!--        [nzXs]="24"-->    <!--        nzFor="captcha"-->    <!--        nzRequired-->    <!--        nzTooltipTitle="Please click \'Get captcha\'"-->    <!--      >-->    <!--        Captcha-->    <!--      </nz-form-label>-->    <!--      <nz-form-control-->    <!--        [nzSm]="14"-->    <!--        [nzXs]="24"-->    <!--        nzErrorTip="Please input the captcha you got!"-->    <!--        nzExtra="We must make sure that your are a human."-->    <!--      >-->    <!--        <div [nzGutter]="8" nz-row>-->    <!--          <div [nzSpan]="12" nz-col>-->    <!--            <input formControlName="captcha" id="captcha" nz-input/>-->    <!--          </div>-->    <!--          <div [nzSpan]="12" nz-col>-->    <!--            <button (click)="getCaptcha($event)" nz-button>Get captcha</button>-->    <!--          </div>-->    <!--        </div>-->    <!--      </nz-form-control>-->    <!--    </nz-form-item>-->    <nz-form-item class="register-area" nz-row>      <nz-form-control [nzOffset]="6" [nzSpan]="14">        <label>            <span>              Don\'t have an account?              <a routerLink="/auth/login">login here</a>            </span>        </label>      </nz-form-control>    </nz-form-item>    <nz-form-item class="register-area" nz-row>      <nz-form-control [nzOffset]="6" [nzSpan]="14">        <button nz-button nzType="primary" type="submit">Register</button>      </nz-form-control>    </nz-form-item>  </form></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DefaultComponent', 'selector': 'enr-default'},{'name': 'DepartmentListComponent', 'selector': 'enr-department-list'},{'name': 'ForgotPasswordComponent', 'selector': 'enr-forgot-password'},{'name': 'GroupListComponent', 'selector': 'enr-group-list'},{'name': 'GroupRoleListComponent', 'selector': 'enr-group-role-list'},{'name': 'LoginComponent', 'selector': 'enr-login'},{'name': 'RegisterComponent', 'selector': 'enr-register'},{'name': 'ResetPasswordComponent', 'selector': 'enr-reset-password'},{'name': 'ToastComponent', 'selector': 'enr-toast'},{'name': 'WelcomeComponent', 'selector': 'enr-welcome'},{'name': 'WorkflowDetailComponent', 'selector': 'enr-workflow-detail'},{'name': 'WorkflowListComponent', 'selector': 'enr-workflow-list'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'RegisterComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'RegisterComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
